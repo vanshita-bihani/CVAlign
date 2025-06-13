@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import os
 import shutil
 from typing import List
+from utils.extractor import extract_text
 
 app = FastAPI()
 
@@ -42,3 +43,19 @@ async def upload_multiple_cvs(files: List[UploadFile] = File(...)):
             shutil.copyfileobj(file.file, buffer)
         uploaded_files.append(file.filename)
     return {"message": f"Uploaded {len(uploaded_files)} files successfully", "files": uploaded_files}
+
+@app.post("/parse/")
+async def parse_file(file: UploadFile = File(...)):
+    file_ext = os.path.splitext(file.filename)[1].lower()
+    file_path = os.path.join(UPLOAD_FOLDER, file.filename)
+
+    # Save file to disk
+    with open(file_path, "wb") as f:
+        f.write(await file.read())
+
+    # Extract text
+    try:
+        text = extract_text(file_path)
+        return {"filename": file.filename, "text": text}
+    except ValueError as e:
+        return {"error": str(e)}
