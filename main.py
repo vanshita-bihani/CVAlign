@@ -1,6 +1,8 @@
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 import os
+import shutil
+from typing import List
 
 app = FastAPI()
 
@@ -17,6 +19,26 @@ app.add_middleware(
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
+
 @app.get("/")
 def read_root():
     return {"message": "CVAlign Backend is up!"}
+
+
+@app.post("/upload-single")
+async def upload_single_cv(file: UploadFile = File(...)):
+    file_location = os.path.join(UPLOAD_FOLDER, file.filename)
+    with open(file_location, "wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
+    return {"message": f"Uploaded {file.filename} successfully"}
+
+
+@app.post("/upload-multiple")
+async def upload_multiple_cvs(files: List[UploadFile] = File(...)):
+    uploaded_files = []
+    for file in files:
+        file_location = os.path.join(UPLOAD_FOLDER, file.filename)
+        with open(file_location, "wb") as buffer:
+            shutil.copyfileobj(file.file, buffer)
+        uploaded_files.append(file.filename)
+    return {"message": f"Uploaded {len(uploaded_files)} files successfully", "files": uploaded_files}
