@@ -9,3 +9,4 @@ pdfplumber
 PyMuPDF
 python-multipart
 aiofiles
+python-docx
