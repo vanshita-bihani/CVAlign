@@ -12,8 +12,8 @@ load_dotenv()
 from openai import OpenAI
 
 # Use the actual extractor and matcher you already have
-from utils.extractor import extract_text
-from utils.matcher import compute_similarity
+from ..utils.extractor import extract_text
+from ..utils.matcher import compute_similarity
 
 # Ensure paths are project-root relative (same base as routes.py)
 BASE_DIR = Path(__file__).resolve().parent.parent

@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.resume import routes as resume_routes
+from .resume import routes as resume_routes
 
 app = FastAPI(title="CVAlign API")
 
