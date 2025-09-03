@@ -1,0 +1,88 @@
+[
+  {
+    "name": "220107093_Resume_1",
+    "original_filename": "220107093_Resume_1.pdf",
+    "semantic_score": 79.99,
+    "skills_matched": [
+      "sql",
+      "javascript",
+      "node",
+      "rest",
+      "java"
+    ],
+    "skill_score": 96.43,
+    "education": "B.Tech - Chemical Engineering Chem; B.Tech. Major Indian Institute of Technology it | Indian Institute of Technology | CGPA 7.6; Beautiful Soup for it; b scraping of data on JOSAA website from the year 2016 to 2023. it | CGPA 2; b Technologies: HTML; between 20k+ alumni and 8k+ campus students. | CGPA 7; ber it | CGPA 2",
+    "education_score": 73.0,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 50.83,
+    "strengths": [
+      "Strong programming skills in JavaScript and familiarity with Node.js, demonstrated through projects such as the Airbnb clone website and Discord Weather Bot.",
+      "Experience in full-stack development, as shown by involvement in projects utilizing the MERN stack and RESTful APIs.",
+      "Solid academic background in Computer Science-related courses, providing a good understanding of data structures and algorithms."
+    ],
+    "weaknesses": [
+      "The candidate is pursuing a degree in Chemical Engineering, which may not be directly aligned with a software development focus in the job description.",
+      "Limited exposure to relational databases, with MySQL mentioned only as a 'plus' rather than as a strong skill.",
+      "No explicit mention of experience with cloud platforms, particularly AWS, which is advantageous for the position."
+    ],
+    "feedback": "Vanshita shows promising potential for the Software Development Engineer Intern role with solid programming skills and hands-on project experience in relevant technologies. However, her background in Chemical Engineering may lead to a steeper learning curve in adapting to a purely software development environment. Gaining more experience with relational databases and cloud services, particularly AWS, would strengthen her candidacy further."
+  },
+  {
+    "name": "220107093_Resume_2",
+    "original_filename": "220107093_Resume_2.pdf",
+    "semantic_score": 80.11,
+    "skills_matched": [
+      "sql",
+      "javascript",
+      "node",
+      "rest",
+      "java"
+    ],
+    "skill_score": 90.71,
+    "education": "B.Tech - Chemical Engineering Chem; B.Tech. Major Indian Institute of Technology it | Indian Institute of Technology | CGPA 7.6; Beautiful Soup for it; b scraping of data on JOSAA website from the year 2016 to 2023. it | CGPA 2; between 20k+ alumni and 8k+ campus students. | CGPA 7; ber it | CGPA 2",
+    "education_score": 70.5,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 48.36,
+    "strengths": [
+      "Strong programming skills in JavaScript and experience with Node.js as demonstrated in the Airbnb Clone project, which aligns with the job requirements.",
+      "Hands-on experience with full-stack development through multiple self-driven projects, showcasing the ability to build and maintain scalable applications.",
+      "Good analytical and problem-solving skills reflected in the JOSAA Data Analysis Portal project and participation in technical competitions."
+    ],
+    "weaknesses": [
+      "Currently pursuing a B.Tech in Chemical Engineering, which may not directly align with the software development focus of the internship.",
+      "Limited experience with cloud platforms like AWS, which is preferred for the role.",
+      "Elementary proficiency in some technical skills (Python, Flutter, etc.) which may require further development to meet job expectations."
+    ],
+    "feedback": "Vanshita demonstrates strong technical skills through various projects, particularly in JavaScript and full-stack development. However, as a Chemical Engineering student, she may need to bridge the gap with additional software engineering concepts and cloud platform knowledge to fully meet the internship's requirements. Continued focus on building a robust programming portfolio and familiarity with cloud services will be beneficial."
+  },
+  {
+    "name": "220107093_Resume_3",
+    "original_filename": "220107093_Resume_3.pdf",
+    "semantic_score": 79.12,
+    "skills_matched": [
+      "rest",
+      "node",
+      "javascript",
+      "java"
+    ],
+    "skill_score": 82.14,
+    "education": "B.Tech - Chemical Engineering Chem; B.Tech. Major Indian Institute of Technology it | Indian Institute of Technology | CGPA 7.6; berSecurity iT; Beautiful Soup for it; b scraping of data on JOSAA website from the year 2016 to 2023. it | CGPA 2; b Technologies: HTML; between 20k+ alumni and 8k+ campus students. | CGPA 7; be the first ever silver jubilee reunion of IITG. it | IITG. | CGPA 3; ber it | CGPA 2; Best Marching Contingent out of 14 teams as a Community Service Volunteer. it | nity Service Volunteer. | CGPA 2",
+    "education_score": 73.0,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 46.54,
+    "strengths": [
+      "Strong programming skills in JavaScript and familiarity with Node.js, evident from the personal project of developing a Full-Stack Airbnb Clone.",
+      "Experience in data analysis and web development through projects like the JOSAA Data Analysis Portal and effective use of web technologies.",
+      "Demonstrated leadership and communication skills as Outreach Head for the Student Alumni Interaction Linkage at IIT Guwahati."
+    ],
+    "weaknesses": [
+      "Limited experience specifically in server-side application development, as the candidate's focus appears to be more on full-stack projects.",
+      "No mention of familiarity with relational databases like MySQL or PostgreSQL, which is a plus according to the job description.",
+      "Experience with cloud platforms like AWS is absent, which the job description notes as advantageous."
+    ],
+    "feedback": "Vanshita's resume showcases strong programming abilities and project experience with web technologies. While the candidate possesses relevant skills and a solid academic background, there are gaps in specific areas requested by the job description, such as experience with relational databases and cloud platforms. Focusing on these areas could enhance their suitability for the internship role."
+  }
+]

@@ -1,0 +1,88 @@
+[
+  {
+    "name": "220107093_Resume_1",
+    "original_filename": "220107093_Resume_1.pdf",
+    "semantic_score": 79.99,
+    "skills_matched": [
+      "sql",
+      "rest",
+      "java",
+      "node",
+      "javascript"
+    ],
+    "skill_score": 96.43,
+    "education": "B.Tech - Chemical Engineering; B.Tech. Major Indian Institute of Technology | Indian Institute of Technology | CGPA: 7.6; Beautiful Soup for in it; b scraping of data on JOSAA website from the year 2016 to 2023. | CGPA: 2; between 20k+ alumni and 8k+ campus students. | CGPA: 7; ber in it | CGPA: 2",
+    "education_score": 70.5,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 50.08,
+    "strengths": [
+      "Strong programming skills in JavaScript and knowledge of Node.js from various projects.",
+      "Experience in full-stack development using the MERN stack, demonstrating the ability to handle both front-end and back-end tasks.",
+      "Hands-on experience with databases, particularly MongoDB and MySQL, which aligns with the software development requirements."
+    ],
+    "weaknesses": [
+      "No explicit mention of experience with cloud platforms like AWS, which is preferred for this internship.",
+      "Limited exposure to software testing practices; while unit testing is mentioned, there are no specific projects highlighting this skill.",
+      "Background in Chemical Engineering may not directly align with the focus on Computer Science or Engineering disciplines typically preferred for software roles."
+    ],
+    "feedback": "Vanshita has a strong foundation in programming and web development, showcased through relevant projects like the Airbnb Clone and Discord Weather Bot. However, there are some gaps in cloud platform experience and software testing. Additionally, the candidate’s background in Chemical Engineering may require further emphasis on how their skills can translate into this role. Overall, they are a promising fit for the SDE Intern position, with a good balance of technical skills and hands-on project experience."
+  },
+  {
+    "name": "220107093_Resume_2",
+    "original_filename": "220107093_Resume_2.pdf",
+    "semantic_score": 80.11,
+    "skills_matched": [
+      "sql",
+      "rest",
+      "java",
+      "node",
+      "javascript"
+    ],
+    "skill_score": 90.71,
+    "education": "B.Tech - Chemical Engineering; B.Tech. Major Indian Institute of Technology | Indian Institute of Technology | CGPA: 7.6; Beautiful Soup for in it; b scraping of data on JOSAA website from the year 2016 to 2023. | CGPA: 2; between 20k+ alumni and 8k+ campus students. | CGPA: 7; ber in it | CGPA: 2",
+    "education_score": 70.5,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 48.36,
+    "strengths": [
+      "Strong programming skills in JavaScript and experience with full-stack development, particularly with the MERN stack as showcased in the Airbnb Clone project.",
+      "Hands-on experience with data analysis and web application development through projects like the JOSAA Data Analysis Portal and the Gemini Chatbot.",
+      "Demonstrated ability to work in teams and leadership experience as Outreach Head at IIT Guwahati, managing events and engaging with large groups."
+    ],
+    "weaknesses": [
+      "Limited direct experience with Node.js, which is specifically highlighted in the job description.",
+      "Minimal exposure to cloud platforms like AWS, which could be beneficial for the role.",
+      "Currently pursuing a B.Tech in Chemical Engineering, which may signal less focus on software engineering compared to candidates with a computer science background."
+    ],
+    "feedback": "Vanshita has a solid foundation in programming and has demonstrated the ability to develop full-stack applications. However, to align more closely with the SDE Intern position at Aris Infra, she could benefit from deeper experience with Node.js and cloud platforms like AWS. Additionally, emphasizing her programming projects that showcase relevant skills can strengthen her application."
+  },
+  {
+    "name": "220107093_Resume_3",
+    "original_filename": "220107093_Resume_3.pdf",
+    "semantic_score": 79.12,
+    "skills_matched": [
+      "rest",
+      "java",
+      "node",
+      "javascript"
+    ],
+    "skill_score": 82.14,
+    "education": "B.Tech - Chemical Engineering; B.Tech. Major Indian Institute of Technology | Indian Institute of Technology | CGPA: 7.6; berSecurity in iT; Beautiful Soup for in it; b scraping of data on JOSAA website from the year 2016 to 2023. | CGPA: 2; between 20k+ alumni and 8k+ campus students. | CGPA: 7; be the first ever silver jubilee reunion of IITG. in it | IITG. | CGPA: 3; ber in it | CGPA: 2; Best Marching Contingent out of 14 teams as a Community Service Volunteer. | nity Service Volunteer. | CGPA: 2",
+    "education_score": 70.5,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 45.79,
+    "strengths": [
+      "Strong programming skills in JavaScript with hands-on experience in full-stack development using the MERN stack.",
+      "Experience in collaborating and leading teams through roles such as Outreach Head, demonstrating strong interpersonal and organizational skills.",
+      "Solid academic background with a B.Tech in a related engineering field and a good CGPA."
+    ],
+    "weaknesses": [
+      "Limited direct experience with server-side application development specifically using Node.js, as the focus seems to be more on the front-end and data analysis.",
+      "Basic understanding of data structures and algorithms; deeper knowledge may be required for the optimization and debugging tasks outlined in the job description.",
+      "No mention of familiarity with relational databases (MySQL/PostgreSQL) that could be essential for the role."
+    ],
+    "feedback": "Vanshita Bihani has a strong foundation in programming and web technologies, making her a potential fit for the SDE Intern position at Aris Infra. However, her resume indicates a primary focus on front-end development and data analysis, which may not fully align with the company's requirements for server-side application development using Node.js. Additionally, enhancing her knowledge of relational databases and algorithmic concepts will be beneficial for this role."
+  }
+]

@@ -1,0 +1,124 @@
+[
+  {
+    "name": "SDE_RESUME",
+    "original_filename": "SDE_RESUME.pdf",
+    "semantic_score": 81.47,
+    "skills_matched": [
+      "node",
+      "javascript",
+      "sql",
+      "rest",
+      "java"
+    ],
+    "skill_score": 96.43,
+    "education": "B.Tech - Chemical Engineering Chem; B.Tech. Major Indian Institute of Technology it | Indian Institute of Technology | CGPA 8.39; between client and server using Socket.io.; b technologies and blockchain integration. ece; b Technologies: HTML; before the faculties and administration. | CGPA 9; bers | CGPA 4; ber IT | IIT Guwahati Aug 2022 - Present | CGPA 2",
+    "education_score": 76.95,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 52.01,
+    "strengths": [
+      "Strong programming skills in JavaScript and experience with Node.js from project work.",
+      "Experience in full-stack development, having developed web applications using React.js and Node.js.",
+      "Strong academic performance with a CGPA of 8.39, indicating solid understanding of computer science fundamentals."
+    ],
+    "weaknesses": [
+      "Bachelor's degree is in Chemical Engineering, which may not provide specific in-depth knowledge of software development.",
+      "Limited exposure to cloud platforms (AWS is not mentioned in the resume).",
+      "Basic understanding of data structures and algorithms, which may not fully align with the intern's requirements for strong programming skills."
+    ],
+    "feedback": "Nandini Priya has commendable programming skills and project experience in full-stack development, making her a strong candidate for the SDE intern position at Aris Infra. However, her academic background in Chemical Engineering might limit her depth in software-related concepts, and she should further strengthen her knowledge of data structures and algorithms. Additionally, gaining exposure to cloud platforms like AWS would enhance her candidacy further."
+  },
+  {
+    "name": "SDE_CV",
+    "original_filename": "SDE_CV.pdf",
+    "semantic_score": 86.16,
+    "skills_matched": [
+      "javascript",
+      "sql",
+      "node",
+      "java"
+    ],
+    "skill_score": 69.21,
+    "education": "B.Tech - Chemical Engineering Chem; B.Tech. Major Indian Institute of Technology it | Indian Institute of Technology | CGPA 8.27; betweentwousers.; between solution robustness and computational efficiency.; better feasibility and efficiency under uncertainty than naive methods. it; b Technologies: HTML; ber of the team that secured the runner-up position it | IIT Guwahati.",
+    "education_score": 78.85,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 44.42,
+    "strengths": [
+      "Strong programming skills in JavaScript and experience with Node.js through various projects.",
+      "Hands-on experience in full-stack development demonstrated via projects like Peer-Project and Weather App.",
+      "Proficient in database management with knowledge of both MongoDB and MySQL."
+    ],
+    "weaknesses": [
+      "Currently pursuing a B.Tech in Chemical Engineering, which may not align directly with a software-focused role.",
+      "Limited information on experience with cloud platforms like AWS, which is considered advantageous for the role.",
+      "The resume lacks specific coursework or certifications focused explicitly on software development, which could enhance the application."
+    ],
+    "feedback": "Abhinav has demonstrated relevant technical skills and experience through his projects, particularly in JavaScript, Node.js, and database management. However, his background in Chemical Engineering could be perceived as less aligned with the software development focus of this internship. To strengthen his application, he could highlight any additional coursework or certifications related to software development and explore any exposure to cloud platforms. Overall, he shows potential as an intern with a strong willingness to learn and contribute to projects."
+  },
+  {
+    "name": "Ananya_Resume_Quant (6)-2",
+    "original_filename": "Ananya_Resume_Quant (6)-2.pdf",
+    "semantic_score": 78.19,
+    "skills_matched": [
+      "rest",
+      "javascript",
+      "java"
+    ],
+    "skill_score": 61.14,
+    "education": "B.Tech - Chemical Engineering Chem; B.Tech. Major Indian Institute of Technology it | Indian Institute of Technology | CGPA 8.40; bets by splitting the images it; Beginners Computer; ber | CGPA 2; ber it | nites | CGPA 2; be selected as a mentee in the JPMC QR Mentorship Programme. 2023 | CGPA 5; be selected for the Finance Markets Experience Program (FMEP) 2022 IT | IITG to be selected for the Finance Markets Experience Program (FMEP) 2022 | CGPA 6; be part of the NBA camp held in Mumbai. 2017 | CGPA 5",
+    "education_score": 74.5,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 40.69,
+    "strengths": [
+      "Strong programming skills in JavaScript as demonstrated by the development of a Disney Hotstar website clone.",
+      "Experience with collaborative projects and participation in competitions, indicating strong teamwork and problem-solving abilities.",
+      "Solid academic performance (CGPA: 8.40) and achievements in various extracurricular activities, showcasing a well-rounded profile."
+    ],
+    "weaknesses": [
+      "Currently pursuing a B.Tech in Chemical Engineering, which may not directly align with the software development focus of the internship.",
+      "Limited experience explicitly mentioned with Node.js and backend development in the resume.",
+      "No specific mention of relational databases (MySQL/PostgreSQL) knowledge, which is a plus for the role."
+    ],
+    "feedback": "Ananya showcases impressive programming skills and relevant project experience, particularly in JavaScript. However, her background in Chemical Engineering may not fully align with the requirements of a software development role. She would benefit from emphasizing any self-taught or project-related experience with Node.js and relational databases, as these areas are crucial for the internship. Overall, she has potential and enthusiasm for learning, which could be valuable for the role."
+  },
+  {
+    "name": "Abhinav_CV",
+    "original_filename": "Abhinav_CV.pdf",
+    "semantic_score": 82.81,
+    "skills_matched": [],
+    "skill_score": 16.79,
+    "education": "B.Tech - Energy Science and Engineering github.com/AbhinavKDsharma17 Energy | CGPA 1; B.Tech. Major Indian Institute of Technology it | Indian Institute of Technology | CGPA 6.66; best; before occurrence using multiple ML algorithms & deploying the it",
+    "education_score": 68.3,
+    "experience": "2 years",
+    "experience_score": 20.0,
+    "score": 33.53,
+    "strengths": [
+      "Strong programming skills in Python and experience with machine learning, which demonstrates a solid foundation in technical skills.",
+      "Experience in developing and deploying models, showcasing ability to work on real-world projects and contributing to software solutions.",
+      "Educational background from a reputable institution (IIT Guwahati) and involvement in diverse projects and responsibilities indicating good problem-solving and collaborative skills."
+    ],
+    "weaknesses": [
+      "Limited experience specifically with Node.js and JavaScript, which are key requirements for the SDE intern role.",
+      "Lacks direct exposure to relational databases like MySQL/PostgreSQL, which may be important when developing server-side applications.",
+      "No clear indication of experience working in a hybrid or remote team environment, which is requisite for the role."
+    ],
+    "feedback": "Abhinav has a strong technical background and has demonstrated valuable skills in predictive modeling and quantitative analysis, which may be beneficial for the intern role. However, he lacks specific experience with Node.js and JavaScript, and his familiarity with databases and cloud platforms is limited. If he can quickly ramp up these skills, he would be well-prepared to contribute effectively to Aris Infra's software development projects."
+  },
+  {
+    "name": "Yash BihaniCV",
+    "original_filename": "Yash BihaniCV.pdf",
+    "semantic_score": 0.0,
+    "skills_matched": [],
+    "skill_score": 0.0,
+    "education": "Unknown",
+    "education_score": 12.0,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 3.6,
+    "strengths": [],
+    "weaknesses": [],
+    "feedback": "LLM feedback not available (no API key or JD-resume mismatch)."
+  }
+]

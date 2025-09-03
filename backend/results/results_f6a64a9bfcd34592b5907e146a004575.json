@@ -1,0 +1,238 @@
+[
+  {
+    "name": "SDE_RESUME",
+    "original_filename": "SDE_RESUME.pdf",
+    "semantic_score": 81.47,
+    "skills_matched": [
+      "sql",
+      "rest",
+      "java",
+      "node",
+      "javascript"
+    ],
+    "skill_score": 96.43,
+    "education": "B.Tech - Chemical Engineering; B.Tech. Major Indian Institute of Technology | Indian Institute of Technology | CGPA: 8.39; b technologies and blockchain integration. in ece; before the faculties and administration. | CGPA: 9; bers | CGPA: 4; ber in IT | IIT Guwahati Aug 2022 - Present | CGPA: 2",
+    "education_score": 74.45,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 51.26,
+    "strengths": [
+      "Proficient in JavaScript and Node.js as demonstrated in projects like Charcha and FoodieFlick.",
+      "Strong problem-solving skills shown through coursework and projects in machine learning and optimization.",
+      "Experience with full-stack development, including both frontend (React) and backend (Node.js) technologies."
+    ],
+    "weaknesses": [
+      "Currently pursuing a degree in Chemical Engineering, which may not align directly with the software development focus of the position.",
+      "Elementary proficiency in some required technologies (Node.js, Express.js) might limit the initial contribution to the team.",
+      "Specific experience with relational databases (MySQL/PostgreSQL) is not explicitly mentioned, which could be a drawback for the role."
+    ],
+    "feedback": "Nandini demonstrates solid programming skills and hands-on experience with technology stacks relevant to the intern role, particularly with JavaScript and Node.js. However, her educational background in Chemical Engineering may present a learning curve in adapting to a software-focused environment. Strengthening her knowledge in relational databases and ensuring a proficient understanding of Node.js and Express.js will enhance her candidacy further. Overall, she shows great potential and can benefit from this internship opportunity to bridge any gaps in her software development expertise."
+  },
+  {
+    "name": "220107093_Resume_1",
+    "original_filename": "220107093_Resume_1.pdf",
+    "semantic_score": 79.99,
+    "skills_matched": [
+      "sql",
+      "rest",
+      "java",
+      "node",
+      "javascript"
+    ],
+    "skill_score": 96.43,
+    "education": "B.Tech - Chemical Engineering; B.Tech. Major Indian Institute of Technology | Indian Institute of Technology | CGPA: 7.6; Beautiful Soup for in it; b scraping of data on JOSAA website from the year 2016 to 2023. | CGPA: 2; between 20k+ alumni and 8k+ campus students. | CGPA: 7; ber in it | CGPA: 2",
+    "education_score": 70.5,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 50.08,
+    "strengths": [
+      "Strong programming skills in JavaScript and experience with Node.js, as demonstrated in personal projects like the Airbnb clone website and Discord weather bot.",
+      "Experience with full-stack development using the MERN stack, which aligns well with the requirements for the SDE Intern position.",
+      "Proven problem-solving abilities and analytical skills through data analysis projects and participation in technical competitions."
+    ],
+    "weaknesses": [
+      "Currently pursuing a B.Tech in Chemical Engineering, which may not align directly with a Computer Science degree typically preferred for software engineering roles.",
+      "Limited formal work experience in software development outside of self-directed or academic projects.",
+      "Availability of only basic knowledge in database management systems like MySQL and PostgreSQL, whereas advanced knowledge might be preferable for the role."
+    ],
+    "feedback": "Vanshita has a solid foundation in software development and relevant projects that demonstrate practical experience with technologies required for the intern role. However, her current academic focus in Chemical Engineering may present a gap in the expected technical background for a pure Software Development Engineer, which typically centers around Computer Science. Enhancing her familiarity with relational databases and gaining more practical experience in a professional setting would further strengthen her candidacy."
+  },
+  {
+    "name": "220107093_Resume_2",
+    "original_filename": "220107093_Resume_2.pdf",
+    "semantic_score": 80.11,
+    "skills_matched": [
+      "sql",
+      "rest",
+      "java",
+      "node",
+      "javascript"
+    ],
+    "skill_score": 90.71,
+    "education": "B.Tech - Chemical Engineering; B.Tech. Major Indian Institute of Technology | Indian Institute of Technology | CGPA: 7.6; Beautiful Soup for in it; b scraping of data on JOSAA website from the year 2016 to 2023. | CGPA: 2; between 20k+ alumni and 8k+ campus students. | CGPA: 7; ber in it | CGPA: 2",
+    "education_score": 70.5,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 48.36,
+    "strengths": [
+      "Strong programming skills in JavaScript and experience with full-stack development, as demonstrated by the Airbnb Clone project using the MERN stack.",
+      "Experience with data structures and algorithms, which aligns well with the required qualifications for the SDE Intern role.",
+      "Ability to work on projects independently, as evidenced by multiple self-initiated projects showcasing a keen interest in technology and software development."
+    ],
+    "weaknesses": [
+      "Currently pursuing a Bachelor’s degree in Chemical Engineering, which may not fully align with the Computer Science or Engineering background preferred for the role.",
+      "Basic proficiency in some required tools and technologies like Node.js and MySQL, indicating a need for further development in these areas.",
+      "Limited exposure to cloud platforms like AWS, which is mentioned as advantageous in the job description."
+    ],
+    "feedback": "Vanshita has notable strengths in programming and a solid foundation in full-stack development through her projects. However, her primary education in Chemical Engineering could present challenges in fully meeting the expectations for a Software Development Engineer role, particularly in the depth of computer science knowledge typically expected. Focusing on enhancing her understanding of required technologies like Node.js, MySQL, and cloud platforms will be key to her success as an intern."
+  },
+  {
+    "name": "220107093_Resume_3",
+    "original_filename": "220107093_Resume_3.pdf",
+    "semantic_score": 79.12,
+    "skills_matched": [
+      "rest",
+      "java",
+      "node",
+      "javascript"
+    ],
+    "skill_score": 82.14,
+    "education": "B.Tech - Chemical Engineering; B.Tech. Major Indian Institute of Technology | Indian Institute of Technology | CGPA: 7.6; berSecurity in iT; Beautiful Soup for in it; b scraping of data on JOSAA website from the year 2016 to 2023. | CGPA: 2; between 20k+ alumni and 8k+ campus students. | CGPA: 7; be the first ever silver jubilee reunion of IITG. in it | IITG. | CGPA: 3; ber in it | CGPA: 2; Best Marching Contingent out of 14 teams as a Community Service Volunteer. | nity Service Volunteer. | CGPA: 2",
+    "education_score": 70.5,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 45.79,
+    "strengths": [
+      "Strong programming skills in JavaScript and familiarity with Node.js as demonstrated in the Airbnb Clone project and JOSAA Data Analysis Portal.",
+      "Experience in full-stack development through self-initiated projects, showcasing a solid understanding of both front-end and back-end technologies.",
+      "Ability to work collaboratively and take on leadership roles, as evidenced by the position of Outreach Head and coordination of events with a large team."
+    ],
+    "weaknesses": [
+      "Currently pursuing a B.Tech in Chemical Engineering, which may not align directly with the software-oriented focus of the internship.",
+      "Limited experience in software engineering roles compared to peers who may have pursued computer science or related fields.",
+      "Lack of work experience in a formal internship setting, which may affect familiarity with real-world software development processes."
+    ],
+    "feedback": "Vanshita has a solid foundation in programming and demonstrates strong technical skills through relevant projects, particularly in full-stack development. While the academic background in Chemical Engineering is a divergence from the direct requirements of a Software Development Engineer role, the project experience and leadership capabilities show potential for growth and adaptability. Gaining a more explicit focus on software engineering through additional projects or coursework might enhance candidacy for this role."
+  },
+  {
+    "name": "VarakalaRajasree_220150028",
+    "original_filename": "VarakalaRajasree_220150028.pdf",
+    "semantic_score": 79.28,
+    "skills_matched": [
+      "rest",
+      "java",
+      "javascript",
+      "sql"
+    ],
+    "skill_score": 79.29,
+    "education": "B.Tech - Data Science and Artificial Intelligence; B.Tech. Major Indian Institute of Technology | Indian Institute of Technology | CGPA: 7.38; ber configurations. in it | CGPA: 9; ber in IT | IIT Guwahati. May. 2023 - Jan. 2024 | CGPA: 2",
+    "education_score": 66.9,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 43.86,
+    "strengths": [
+      "Strong programming skills in JavaScript, supported by experience in web development using HTML, CSS, and Flask.",
+      "Hands-on experience in developing scalable server-side applications through projects, including a backend-focused online railway reservation system using PHP and MySQL.",
+      "Solid educational background in Computer Science and Data Science, demonstrating knowledge of algorithms, data structures, and database management."
+    ],
+    "weaknesses": [
+      "Limited experience specifically with Node.js, which is a key requirement for the SDE Intern position.",
+      "Lack of exposure to cloud platforms like AWS, which could enhance the candidate's ability to contribute to an infrastructure-focused company.",
+      "The resume does not mention any experience with debugging or performance optimization, although these are important aspects of software development."
+    ],
+    "feedback": "Overall, Rajasree demonstrates a solid foundation in programming and web development, making her a good candidate for an SDE Intern role. However, she should focus on gaining experience with Node.js and exploring cloud platforms to align more closely with the job requirements. Additionally, developing skills in debugging and performance optimization will enhance her capabilities as a software developer."
+  },
+  {
+    "name": "SDE_CV",
+    "original_filename": "SDE_CV.pdf",
+    "semantic_score": 86.16,
+    "skills_matched": [
+      "java",
+      "node",
+      "javascript",
+      "sql"
+    ],
+    "skill_score": 69.21,
+    "education": "B.Tech - Chemical Engineering; B.Tech. Major Indian Institute of Technology | Indian Institute of Technology | CGPA: 8.27; better feasibility and efficiency under uncertainty than naive methods.; ber of the team that secured the runner-up position | IIT Guwahati.",
+    "education_score": 76.35,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 43.67,
+    "strengths": [
+      "Strong programming skills in JavaScript and experience with Node.js through academic and personal projects.",
+      "Hands-on experience in developing web applications, including API development and database management using MongoDB and MySQL.",
+      "Demonstrated problem-solving skills and the ability to work on collaborative projects in a fast-paced environment."
+    ],
+    "weaknesses": [
+      "Educational background in Chemical Engineering may limit direct relevance to a software development role.",
+      "Limited formal experience with relational databases like MySQL/PostgreSQL as the focus has primarily been on MongoDB.",
+      "Minimal exposure to cloud platforms such as AWS, which is noted as advantageous in the job description."
+    ],
+    "feedback": "Abhinav presents a solid foundation in programming and web development, supported by relevant project experience. However, transitioning from a Chemical Engineering background to a software development position might pose challenges, particularly in areas that require deeper understanding of software engineering principles and cloud technologies. Focusing on bridging these gaps and continuing to refine technical skills will enhance his candidacy for the SDE Intern position."
+  },
+  {
+    "name": "Ananya_Resume_Quant (6)-2",
+    "original_filename": "Ananya_Resume_Quant (6)-2.pdf",
+    "semantic_score": 78.19,
+    "skills_matched": [
+      "rest",
+      "java",
+      "javascript"
+    ],
+    "skill_score": 61.14,
+    "education": "B.Tech - Chemical Engineering; B.Tech. Major Indian Institute of Technology | Indian Institute of Technology | CGPA: 8.40; bets by splitting the images; Beginners in Computer; ber | CGPA: 2; ber in it | nites | CGPA: 2; be selected as a mentee in the JPMC QR Mentorship Programme. 2023 | CGPA: 5; be selected for the Finance Markets Experience Program (FMEP) 2022 in IT | IITG to be selected for the Finance Markets Experience Program (FMEP) 2022 | CGPA: 6; be part of the NBA camp held in Mumbai. 2017 | CGPA: 5",
+    "education_score": 74.5,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 40.69,
+    "strengths": [
+      "Strong programming skills in JavaScript, with experience in developing dynamic web applications as demonstrated by the Disney Hotstar Website Clone project.",
+      "Experience in working on collaborative projects, showcasing problem-solving skills and ability to contribute to team efforts, evident from participation in case study challenges and club activities.",
+      "Solid foundation in computer science principles, with coursework in programming and mathematics that align with the technical requirements of the internship role."
+    ],
+    "weaknesses": [
+      "Limited direct experience with Node.js, which is specifically mentioned in the job description as a required skill.",
+      "No indication of familiarity with relational databases like MySQL or PostgreSQL, which is considered a plus for the internship.",
+      "Lack of exposure to cloud platforms like AWS, which could be advantageous for the position."
+    ],
+    "feedback": "Ananya has a strong foundation in programming and project development, making her a suitable candidate for the SDE Intern role. However, she may need to enhance her skills in specific technologies like Node.js and relational databases to meet all the requirements of the position. Overall, her participation in projects and extracurricular activities demonstrates her ability to learn and adapt quickly."
+  },
+  {
+    "name": "Abhinav_CV",
+    "original_filename": "Abhinav_CV.pdf",
+    "semantic_score": 82.81,
+    "skills_matched": [],
+    "skill_score": 16.79,
+    "education": "B.Tech - Energy Science and Engineering github.com/AbhinavKDsharma17 | CGPA: 1; B.Tech. Major Indian Institute of Technology | Indian Institute of Technology | CGPA: 6.66; before occurrence using multiple ML algorithms & deploying the",
+    "education_score": 68.3,
+    "experience": "2 years",
+    "experience_score": 20.0,
+    "score": 33.53,
+    "strengths": [
+      "Strong programming skills in Python and experience with machine learning, demonstrating problem-solving abilities.",
+      "Experience with time-series analysis and developing predictive models, showcasing a hands-on approach to real-world challenges.",
+      "Educational background from IIT Guwahati, indicating a solid foundation in engineering principles and analytical thinking."
+    ],
+    "weaknesses": [
+      "Limited direct experience with Node.js and JavaScript, which are specifically required for the SDE intern role.",
+      "No mention of experience with relational databases like MySQL/PostgreSQL, which is advantageous for the position.",
+      "Primarily focused on machine learning and quantitative research roles, which may not align closely with full-stack software development."
+    ],
+    "feedback": "Abhinav has a strong technical background with significant experience in machine learning and data analysis, which are valuable in a dynamic tech environment. However, to be a good fit for the SDE Intern role at Aris Infra, he may need to enhance his skills in Node.js and JavaScript, and gain some experience with web development frameworks. Additionally, familiarity with relational databases will be essential for the software development tasks required in this position."
+  },
+  {
+    "name": "Yash BihaniCV",
+    "original_filename": "Yash BihaniCV.pdf",
+    "semantic_score": 0.0,
+    "skills_matched": [],
+    "skill_score": 0.0,
+    "education": "Unknown",
+    "education_score": 12.0,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 3.6,
+    "strengths": [],
+    "weaknesses": [],
+    "feedback": "LLM feedback not available (no API key or JD-resume mismatch)."
+  }
+]

@@ -1,0 +1,88 @@
+[
+  {
+    "name": "220107093_Resume_1",
+    "original_filename": "220107093_Resume_1.pdf",
+    "semantic_score": 79.99,
+    "skills_matched": [
+      "node",
+      "sql",
+      "rest",
+      "java",
+      "javascript"
+    ],
+    "skill_score": 96.43,
+    "education": "B.Tech | Indian Institute of Technology | 2022-Present",
+    "education_score": 30.0,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 37.93,
+    "strengths": [
+      "Strong programming skills in JavaScript and experience with Node.js, which align well with the role requirements.",
+      "Experience in full-stack development demonstrated through projects like the Airbnb Clone Website using the MERN stack.",
+      "Solid problem-solving and analytical skills, evidenced by successful project implementations and data analysis experience."
+    ],
+    "weaknesses": [
+      "Currently pursuing a B.Tech in Chemical Engineering, which may limit deep foundational knowledge in computer science compared to candidates with a direct CS background.",
+      "No explicit mention of experience with relational databases like MySQL or PostgreSQL, even though there is familiarity with MongoDB.",
+      "Limited professional experience as an intern or employee in a software development role, which could present a knowledge gap in industry practices."
+    ],
+    "feedback": "Vanshita Bihani possesses strong technical skills and hands-on experience in software development, particularly with JavaScript and Node.js, making her a suitable candidate for the SDE intern position. However, her background in Chemical Engineering may pose challenges in algorithmic and system design aspects compared to typical CS candidates. Gaining experience with relational databases and seeking opportunities to engage with backend technologies more might enhance her profile further."
+  },
+  {
+    "name": "220107093_Resume_2",
+    "original_filename": "220107093_Resume_2.pdf",
+    "semantic_score": 80.11,
+    "skills_matched": [
+      "node",
+      "sql",
+      "rest",
+      "java",
+      "javascript"
+    ],
+    "skill_score": 90.71,
+    "education": "B.Tech | Indian Institute of Technology | 2022-Present",
+    "education_score": 30.0,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 36.21,
+    "strengths": [
+      "Strong programming skills in JavaScript, along with familiarity in Node.js demonstrated in the Airbnb Clone project.",
+      "Hands-on experience with full-stack development through personal projects, showcasing capability in building scalable applications.",
+      "Eagerness to learn and adapt, as evidenced by participation in various technical competitions and workshops."
+    ],
+    "weaknesses": [
+      "Educational background in Chemical Engineering may not provide direct exposure to software development concepts compared to a Computer Science degree.",
+      "Limited professional experience relevant to practical software engineering roles as this is position is an internship.",
+      "Basic proficiency in Node.js and JavaScript, which may require further improvement to meet the job's technical demands."
+    ],
+    "feedback": "Vanshita possesses a solid foundation in programming and has demonstrated initiative in developing software projects that align with the job requirements. Her full-stack development experience, particularly with the MERN stack, is a valuable asset. However, she may need to strengthen her understanding of JavaScript and Node.js in a professional setting to fully meet the expectations of the Software Development Engineer Intern role."
+  },
+  {
+    "name": "220107093_Resume_3",
+    "original_filename": "220107093_Resume_3.pdf",
+    "semantic_score": 79.12,
+    "skills_matched": [
+      "rest",
+      "node",
+      "java",
+      "javascript"
+    ],
+    "skill_score": 82.14,
+    "education": "B.Tech | Indian Institute of Technology | 2022-Present",
+    "education_score": 30.0,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 33.64,
+    "strengths": [
+      "Strong programming skills in JavaScript and experience with Node.js, demonstrated through the Airbnb Clone project.",
+      "Experience in full-stack development showcased by building a robust web application using the MERN stack.",
+      "Proven ability to work collaboratively in teams through leadership roles and organization of events at IIT Guwahati."
+    ],
+    "weaknesses": [
+      "Currently pursuing a B.Tech in Chemical Engineering, which may not align with the typical software engineering background.",
+      "Limited direct exposure to relational databases like MySQL or PostgreSQL as indicated in the application.",
+      "Experience with cloud platforms is minimal, which may limit ability to contribute to projects involving AWS."
+    ],
+    "feedback": "Vanshita has strong programming capabilities and relevant project experience, especially in JavaScript and full-stack development. However, her background in Chemical Engineering may mean a steeper learning curve for software-specific concepts traditionally covered in computer science curriculums. Additionally, gaining practical experience with relational databases and cloud platforms will enhance her qualifications for the role."
+  }
+]

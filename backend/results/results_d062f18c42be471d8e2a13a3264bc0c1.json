@@ -1,0 +1,29 @@
+[
+  {
+    "name": "SanatNagpal_copy_SANAT NAGPAL 2201510",
+    "original_filename": "SanatNagpal_copy_SANAT NAGPAL 2201510.pdf",
+    "semantic_score": 76.58,
+    "skills_matched": [
+      "rest",
+      "java",
+      "javascript"
+    ],
+    "skill_score": 51.07,
+    "education": "B.Tech - Energy Engineering; B.Tech. Major Indian Institute of Technology | Indian Institute of Technology | CGPA: 7.75",
+    "education_score": 68.75,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 35.95,
+    "strengths": [
+      "Strong programming skills in JavaScript and experience with Python, C/C++, and HTML.",
+      "Experience working on quantitative analysis and developing strategies, showcasing problem-solving skills and analytical thinking.",
+      "Currently pursuing a B.Tech in Energy Engineering, demonstrating a solid foundation in technical and analytical subjects."
+    ],
+    "weaknesses": [
+      "Limited experience specifically with Node.js, which is a requirement for the SDE Intern position.",
+      "Lacks direct experience in full-stack development, as most projects focus on quantitative analysis and machine learning.",
+      "No mention of familiarity with relational databases like MySQL/PostgreSQL or cloud platforms like AWS, which are advantageous for the role."
+    ],
+    "feedback": "Sanat has a strong foundation in programming and analytical skills, evidenced by his various projects and achievements. However, he may need to focus on gaining specific experience with Node.js and full-stack development to align more closely with the requirements of the SDE Intern role at Aris Infra. Additionally, enhancing his knowledge of relational databases and cloud platforms could make him a more competitive candidate."
+  }
+]

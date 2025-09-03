@@ -1,0 +1,60 @@
+[
+  {
+    "name": "220107093_Resume_1",
+    "original_filename": "220107093_Resume_1.pdf",
+    "semantic_score": 79.99,
+    "skills_matched": [
+      "sql",
+      "rest",
+      "java",
+      "node",
+      "javascript"
+    ],
+    "skill_score": 96.43,
+    "education": "B.Tech - Chemical Engineering; B.Tech. Major Indian Institute of Technology | Indian Institute of Technology | CGPA: 7.6; Beautiful Soup for in it; b scraping of data on JOSAA website from the year 2016 to 2023. | CGPA: 2; between 20k+ alumni and 8k+ campus students. | CGPA: 7; ber in it | CGPA: 2",
+    "education_score": 70.5,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 50.08,
+    "strengths": [
+      "Strong programming skills in JavaScript and familiarity with Node.js, evidenced by the Airbnb Clone Website project that utilized the MERN stack.",
+      "Experience with full-stack development, demonstrated through various projects including web applications and APIs.",
+      "Solid problem-solving skills and a keen interest in learning new technologies, as seen in multiple self-initiated projects and participation in tech competitions."
+    ],
+    "weaknesses": [
+      "Currently pursuing a degree in Chemical Engineering, which may not directly align with the typical software-focused educational background for this role.",
+      "Limited exposure to cloud platforms like AWS, which is mentioned as a preference in the job description.",
+      "No specific reference to experience with relational databases such as MySQL or PostgreSQL beyond basic knowledge."
+    ],
+    "feedback": "Vanshita has demonstrated a solid foundation in software development through various relevant projects, particularly in full-stack web application development and backend server management. However, the candidate's primary focus on Chemical Engineering may pose a challenge in aligning fully with the expectations for a Software Development Engineer role. Additionally, enhancing knowledge in relational databases and cloud technologies could further strengthen her candidacy for this internship."
+  },
+  {
+    "name": "220107093_Resume_2",
+    "original_filename": "220107093_Resume_2.pdf",
+    "semantic_score": 80.11,
+    "skills_matched": [
+      "sql",
+      "rest",
+      "java",
+      "node",
+      "javascript"
+    ],
+    "skill_score": 90.71,
+    "education": "B.Tech - Chemical Engineering; B.Tech. Major Indian Institute of Technology | Indian Institute of Technology | CGPA: 7.6; Beautiful Soup for in it; b scraping of data on JOSAA website from the year 2016 to 2023. | CGPA: 2; between 20k+ alumni and 8k+ campus students. | CGPA: 7; ber in it | CGPA: 2",
+    "education_score": 70.5,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 48.36,
+    "strengths": [
+      "Strong programming skills in JavaScript, as evidenced by the development of a Full-Stack Airbnb Clone using Node.js and Express.js.",
+      "Experience in handling data through projects like the JOSAA Data Analysis Portal, demonstrating skills in data cleaning and analysis with Python libraries.",
+      "Leadership experience as Outreach Head for the Student Alumni Interaction Linkage (SAIL), showcasing the ability to work collaboratively and manage teams."
+    ],
+    "weaknesses": [
+      "No demonstrated experience with Node.js specifically in a backend capacity beyond projects, which could be critical for the SDE intern role.",
+      "Limited exposure to cloud platforms like AWS, which is preferred in the job description.",
+      "The candidate's primary field of study is Chemical Engineering, which may not align perfectly with a purely software-focused role."
+    ],
+    "feedback": "Vanshita Bihani has a strong foundation in programming and has undertaken several technical projects. Her projects reflect practical experience with full-stack development and data handling. However, her experience with Node.js and cloud services may need to be deepened to fully meet the role's requirements. Additionally, her background in Chemical Engineering might not align seamlessly with a software development position, so emphasizing her programming skills and relevant projects during interviews would be beneficial."
+  }
+]

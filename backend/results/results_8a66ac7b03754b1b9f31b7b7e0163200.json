@@ -1,0 +1,30 @@
+[
+  {
+    "name": "VarakalaRajasree_220150028",
+    "original_filename": "VarakalaRajasree_220150028.pdf",
+    "semantic_score": 79.28,
+    "skills_matched": [
+      "rest",
+      "sql",
+      "javascript",
+      "java"
+    ],
+    "skill_score": 79.29,
+    "education": "B.Tech - Data Science and Artificial Intelligence Data Science; B.Tech. Major Indian Institute of Technology it | Indian Institute of Technology | CGPA 7.38; ber configurations. it | CGPA 9; ber IT | IIT Guwahati. May. 2023 - Jan. 2024 | CGPA 2",
+    "education_score": 66.9,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 43.86,
+    "strengths": [
+      "Strong programming skills in Python, with experience in back-end development through projects using MySQL and server-side logic.",
+      "Experience with web development technologies including HTML, CSS, and JavaScript, as demonstrated in projects like the Online Railway Reservation System and Sports Celebrity Image Classifier.",
+      "Solid academic background in Computer Science concepts, evidenced by courses in Algorithms, Data Structures, and Database Management Systems."
+    ],
+    "weaknesses": [
+      "Limited direct experience with Node.js and JavaScript as highlighted in the job description, which may affect immediate contribution to server-side applications in the SDE role.",
+      "No formal experience with cloud platforms such as AWS, which is mentioned as advantageous for the position.",
+      "Projects mostly focus on Python; may need to bridge the gap to align with JavaScript and Node.js requirements for the internship."
+    ],
+    "feedback": "Rajasree has a strong foundation in programming and web development, showcased by relevant projects and academic coursework. However, to better align with the internship requirements, it would be beneficial for her to gain some experience with Node.js and JavaScript. Encouraging her to undertake a project or an online course in these areas could enhance her qualifications for the role."
+  }
+]

@@ -1,0 +1,88 @@
+[
+  {
+    "name": "220107093_Resume_1",
+    "original_filename": "220107093_Resume_1.pdf",
+    "semantic_score": 79.99,
+    "skills_matched": [
+      "sql",
+      "java",
+      "javascript",
+      "node",
+      "rest"
+    ],
+    "skill_score": 96.43,
+    "education": "B.Tech - it | Indian Institute of Technology | 2022-Present",
+    "education_score": 30.0,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 37.93,
+    "strengths": [
+      "Strong programming skills in JavaScript and familiarity with Node.js, demonstrated through various projects such as the Airbnb Clone Website and Discord Weather Bot.",
+      "Experience with building web applications using modern frameworks and technologies, particularly the MERN stack, which aligns with the company's requirements.",
+      "Academic achievements and participation in extracurricular activities indicate strong problem-solving skills and the ability to work collaboratively in a team setting."
+    ],
+    "weaknesses": [
+      "Currently pursuing a B.Tech in Chemical Engineering, which might not provide a solid foundation in software development concepts compared to candidates specialized in Computer Science.",
+      "Limited experience with cloud platforms, such as AWS, which is mentioned as advantageous for the intern role.",
+      "Projects show strong individual contributions but lack experience in a professional team setting, especially in code reviews or collaborative software development environments."
+    ],
+    "feedback": "Vanshita has demonstrated a robust understanding of software development through various hands-on projects. However, pursuing a degree in Chemical Engineering may pose challenges concerning the depth of knowledge in software engineering principles that candidates from a Computer Science background might possess. Gaining more experience with cloud platforms and participating in collaborative projects could enhance her candidacy for the software development role at Aris Infra."
+  },
+  {
+    "name": "220107093_Resume_2",
+    "original_filename": "220107093_Resume_2.pdf",
+    "semantic_score": 80.11,
+    "skills_matched": [
+      "sql",
+      "java",
+      "javascript",
+      "node",
+      "rest"
+    ],
+    "skill_score": 90.71,
+    "education": "B.Tech - it | Indian Institute of Technology | 2022-Present",
+    "education_score": 30.0,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 36.21,
+    "strengths": [
+      "Strong programming skills in JavaScript as demonstrated through the development of a Full-Stack Airbnb Clone using the MERN stack.",
+      "Experience in collaborative projects, such as the JOSAA Data Analysis Portal and chatbot, showcasing ability to work independently and with teams.",
+      "Familiarity with databases (MySQL) and key programming concepts, which aligns with the job requirements."
+    ],
+    "weaknesses": [
+      "Currently pursuing a B.Tech in Chemical Engineering, which may not directly align with the Computer Science or Engineering focus preferred for the role.",
+      "Limited exposure to cloud platforms such as AWS, which is advantageous but not highlighted in the resume.",
+      "Elementary proficiency in some essential skills like data structures and algorithms, which may require improvement for higher-level software development tasks."
+    ],
+    "feedback": "Vanshita has demonstrated solid programming skills and experience in developing full-stack applications, making her a suitable candidate for the SDE Intern position. However, her background in Chemical Engineering may present challenges in implementing certain technical concepts directly relevant to the role. Focusing on enhancing her knowledge of cloud platforms and advanced data structures could further strengthen her application."
+  },
+  {
+    "name": "220107093_Resume_3",
+    "original_filename": "220107093_Resume_3.pdf",
+    "semantic_score": 79.12,
+    "skills_matched": [
+      "javascript",
+      "java",
+      "node",
+      "rest"
+    ],
+    "skill_score": 82.14,
+    "education": "B.Tech - it | Indian Institute of Technology | 2022-Present; be - it | IITG; Be - it | nity",
+    "education_score": 30.0,
+    "experience": "0 years",
+    "experience_score": 0.0,
+    "score": 33.64,
+    "strengths": [
+      "Strong programming skills in JavaScript and experience with Node.js from personal projects.",
+      "Hands-on experience with full-stack development demonstrated through the Airbnb Clone project using the MERN stack.",
+      "Strong problem-solving skills and analytical abilities showcased in data analysis projects and case studies."
+    ],
+    "weaknesses": [
+      "Currently pursuing a B.Tech in Chemical Engineering, which may not directly align with the Software Development Engineer role.",
+      "Limited direct experience in cloud platforms; familiarity with AWS is not mentioned.",
+      "The resume does not provide extensive knowledge of relational databases like MySQL or PostgreSQL, which are beneficial for the role."
+    ],
+    "feedback": "Vanshita exhibits strong programming capabilities and project experience relevant to the SDE intern role at Aris Infra, particularly in full-stack development and problem-solving. However, her academic background in Chemical Engineering may present a challenge in aligning with the software-focused position. To strengthen her candidacy, she could gain more exposure to cloud platforms and relational databases, while emphasizing her relevant technical projects and skills."
+  }
+]

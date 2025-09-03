@@ -1,2 +1,26 @@
-pdfplumber
-python-docx
+fastapi
+uvicorn
+python-multipart
+aiofiles
+python-dotenv
+
+# PDF handling
+PyMuPDF
+pypdf
+pdfminer.six  # (used internally by LangChain's PyPDFLoader)
+
+# NLP + Embeddings
+langchain
+langchain-community
+sentence-transformers
+scikit-learn
+faiss-cpu
+
+# OpenRouter / OpenAI API
+openai
+
+# Optional (if you're serving frontend via FastAPI)
+jinja2
+
+
+gunicorn
