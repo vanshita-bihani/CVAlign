@@ -1,5 +1,5 @@
 import spacy
-from utils.extractor import extract_text
+from .extractor import extract_text
 import os
 
 nlp = spacy.load("en_core_web_sm")
