@@ -17,4 +17,4 @@ RUN mkdir -p /app/backend/uploaded_cvs /app/backend/uploaded_jds /app/backend/ca
 RUN chown -R 1000:1000 /app/backend
 
 # Command to run your application
-CMD ["gunicorn", "-w", "4", "-k", "uvicorn.workers.UvicornWorker", "backend.main:app", "--bind", "0.0.0.0:7860", "--timeout", "120"]
+CMD ["gunicorn", "-w", "4", "-k", "uvicorn.workers.UvicornWorker", "backend.main:app", "--bind", "0.0.0.0:7860", "--timeout", "300"]
