@@ -1,0 +1,27 @@
+# Python dependencies and artifacts
+/venv/
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+# Node.js dependencies
+/node_modules/
+/frontend/node_modules/
+npm-debug.log
+yarn-error.log
+
+# IDE and OS files
+.vscode/
+.idea/
+*.DS_Store
+
+# --- CRITICAL: Ignore ALL upload folders ---
+backend/uploaded_cvs/
+backend/uploaded_jds/
+uploads/
+uploaded_cvs/
+uploaded_jds/
+results/
+cache/

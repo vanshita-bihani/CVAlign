@@ -1,0 +1,12 @@
+# Netlify Build Settings for the CVAlign Frontend
+
+[build]
+# This tells Netlify where your React project lives
+base = "frontend"
+
+# This is the command to build it
+command = "npm run build"
+
+# This tells Netlify to look for the "build" folder
+# INSIDE the "frontend" base directory. This is the fix.
+publish = "build"
