@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 // ✅ 1. Use the correct, live backend URL
-const API_BASE = "https://vanshita111-cvalign-backend.hf.space";
+const API_BASE = "";
 
 const AnalyzeSection: React.FC = () => {
   const [jdFile, setJdFile] = useState<File | null>(null);

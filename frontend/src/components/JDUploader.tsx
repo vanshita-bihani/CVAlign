@@ -9,7 +9,7 @@ interface Props {
   onCandidates: (rows: any[]) => void;
 }
 
-const API_BASE = "https://vanshita111-cvalign-backend.hf.space";
+const API_BASE = "";
 
 const JDUploader: React.FC<Props> = ({ weights, onCandidates }) => {
   const [resumeFiles, setResumeFiles] = useState<FileList | null>(null);
