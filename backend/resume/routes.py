@@ -66,7 +66,8 @@ async def analyze_endpoint(
     
     return JSONResponse(status_code=status.HTTP_202_ACCEPTED, content={"status": "started", "job_id": job_id})
 
-@router.get("/results/")
+# REPLACE it with this (change the route decorator):
+@router.get("/results/{job_id}") # <-- CHANGE IS HERE
 async def get_results(job_id: str):
     p = RESULT_DIR / f"results_{job_id}.json"
     if not p.exists():

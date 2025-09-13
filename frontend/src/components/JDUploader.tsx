@@ -9,7 +9,7 @@ interface Props {
   onCandidates: (rows: any[]) => void;
 }
 
-const API_BASE = "";
+const API_BASE = "http://127.0.0.1:8001";
 
 const JDUploader: React.FC<Props> = ({ weights, onCandidates }) => {
   const [resumeFiles, setResumeFiles] = useState<FileList | null>(null);
@@ -34,13 +34,13 @@ const JDUploader: React.FC<Props> = ({ weights, onCandidates }) => {
     }
   };
 
+  // Find the pollResults function
   const pollResults = async (jobId: string) => {
     const start = Date.now();
     while (Date.now() - start < 180000) { // 3-minute timeout
       try {
-        const res = await axios.get(`${API_BASE}/resume/results/`, {
-          params: { job_id: jobId },
-        });
+        // THIS IS THE LINE TO CHANGE
+        const res = await axios.get(`${API_BASE}/resume/results/${jobId}`);
         if (res.status === 200 && res.data?.status !== "pending") {
           return res.data;
         }

@@ -50,5 +50,5 @@
   "devDependencies": {
     "@types/react-icons": "^2.2.7"
   },
-  "proxy": "http://127.0.0.1:8001"
+  "proxy": "http://localhost:8001"
 }

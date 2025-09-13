@@ -11,25 +11,25 @@ from openai import OpenAI
 from ..utils.extractor import extract_text
 from ..utils.matcher import compute_similarity
 
-# --- Your original file paths and constants ---
 BASE_DIR = Path(__file__).resolve().parent.parent
 RESUMES_DIR = BASE_DIR / "uploaded_cvs"
 JDS_DIR = BASE_DIR / "uploaded_jds"
 RESULTS_FILE = BASE_DIR / "results" / "results.json"
 RECENT_UPLOADS_FILE = BASE_DIR / "cache" / "recent_uploads.json"
 
-# --- Your original helper functions ---
 COMMON_SKILLS = {
     "python", "java", "javascript", "typescript", "react", "node", "django", "flask",
     "fastapi", "sql", "postgres", "mongodb", "aws", "azure", "docker", "kubernetes",
     "nlp", "pytorch", "tensorflow", "scikit-learn", "sklearn", "pandas", "numpy",
     "git", "rest", "graphql"
 }
-# ... (Your other functions: extract_skills_from_text, _clean_line, extract_education_from_text, etc. remain here)
+
 def extract_skills_from_text(text: str) -> List[str]:
-    if not text: return []
+    if not text:
+        return []
     txt = text.lower()
-    return sorted([kw for kw in COMMON_SKILLS if kw in txt])
+    found = [kw for kw in COMMON_SKILLS if kw in txt]
+    return sorted(found)
 
 def _clean_line(line: str) -> str:
     line = re.sub(r"\S+@\S+", "", line)
@@ -37,7 +37,8 @@ def _clean_line(line: str) -> str:
     return line.strip()
 
 def extract_education_from_text(text: str) -> str:
-    if not text: return "Unknown"
+    if not text:
+        return "Unknown"
     lines = [_clean_line(l) for l in text.splitlines() if l.strip()]
     DEGREE_RE = r"(B\.?Tech|M\.?Tech|B\.?E|B\.?Sc|M\.?Sc|Bachelor|Master|Ph\.?D|MBA)"
     INST_RE = r"(Indian Institute of Technology|IIT\s?-?\s?[A-Za-z]+|NIT\s?-?\s?[A-Za-z]+|National Institute of Technology|University|College|Institute of Technology)"
@@ -102,7 +103,8 @@ def score_skills(candidate_skills: List[str], required_skills: List[str]) -> flo
 
 def _load_recent_uploads() -> List[str]:
     if RECENT_UPLOADS_FILE.exists():
-        try: return json.loads(RECENT_UPLOADS_FILE.read_text(encoding="utf-8"))
+        try:
+            return json.loads(RECENT_UPLOADS_FILE.read_text(encoding="utf-8"))
         except Exception: return []
     return []
 
@@ -112,23 +114,16 @@ def analyze_all_resumes(
     resume_file_paths: Optional[List[str]] = None
 ) -> List[Dict[str, Any]]:
     
-    # ✅ FIX: Added detailed logging to find the hidden error
+    # ✅ FIX: OpenAI client is initialized here to reliably find the API key
     client = None
     api_key = os.getenv("OPENROUTER_API_KEY")
     if api_key:
-        print("DIAGNOSTIC: API Key found. Attempting to create OpenAI client.")
         try:
             client = OpenAI(api_key=api_key, base_url="https://openrouter.ai/api/v1")
-            print("DIAGNOSTIC: OpenAI client created successfully.")
         except Exception as e:
-            print("--- CRITICAL HIDDEN ERROR ---")
-            print(f"Failed to create OpenAI client. Exception: {e}")
-            print("-----------------------------")
+            print(f"CRITICAL ERROR: Failed to create OpenAI client. EXCEPTION: {e}")
             client = None
-    else:
-        print("DIAGNOSTIC: API Key NOT found in environment.")
-    
-    # ... The rest of your function remains the same ...
+
     if isinstance(weights, str):
         try: weights = json.loads(weights.replace("'", "\""))
         except Exception: weights = {}
@@ -162,20 +157,41 @@ def analyze_all_resumes(
             results.append({"name": resume_path.stem, "original_filename": resume_path.name, "error": f"Could not extract text: {e}"})
             continue
 
-        semantic_score = compute_similarity(jd_text or "", resume_text or "") * 100
+        try: semantic_score = compute_similarity(jd_text or "", resume_text or "") * 100
+        except Exception: semantic_score = 0.0
+        
         resume_skills = extract_skills_from_text(resume_text)
         skill_score = score_skills(resume_skills, jd_skills)
         resume_edu = extract_education_from_text(resume_text)
         education_score = score_education(resume_edu)
         resume_exp_years = extract_experience_years_from_text(resume_text)
         experience_score = min((resume_exp_years / 10) * 100, 100)
+        # Find this line inside the analyze_all_resumes function:
         final_score = (weights.get("skills", 50) * skill_score + weights.get("education", 20) * education_score + weights.get("experience", 30) * experience_score) / 100.0
 
+        # REPLACE it with this logic:
+        w_s = weights.get("skills", 50)
+        w_e = weights.get("education", 20)
+        w_x = weights.get("experience", 30)
+        total_weight = w_s + w_e + w_x
+        if total_weight == 0: # Avoid division by zero
+            final_score = 0.0
+        else:
+            final_score = (w_s * skill_score + w_e * education_score + w_x * experience_score) / total_weight
+
         feedback_data = {"strengths": [], "weaknesses": [], "feedback": ""}
-        if client:
+        if client: # Removed the semantic_score > 20 check for reliability
             try:
-                feedback_prompt = f"..." # Your prompt here
-                llm_resp = client.chat.completions.create(...) # Your API call here
+                feedback_prompt = f"""
+You are an HR assistant. A job description is: {jd_text}
+Candidate resume is: {resume_text}
+Please provide 3 strengths, 3 weaknesses, and a short feedback paragraph in JSON format.
+"""
+                llm_resp = client.chat.completions.create(
+                    model="openai/gpt-4o-mini",
+                    messages=[{"role": "user", "content": feedback_prompt}],
+                    response_format={"type": "json_object"}
+                )
                 content = llm_resp.choices[0].message.content or "{}"
                 feedback_data = json.loads(content)
             except Exception as e:
