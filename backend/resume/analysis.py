@@ -11,6 +11,9 @@ from openai import OpenAI
 from ..utils.extractor import extract_text
 from ..utils.matcher import compute_similarity
 
+from dotenv import load_dotenv
+load_dotenv()
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 RESUMES_DIR = BASE_DIR / "uploaded_cvs"
 JDS_DIR = BASE_DIR / "uploaded_jds"

@@ -15,7 +15,7 @@ const UploadForm: React.FC = () => {
 
     try {
       const res = await axios.post(
-        "http://127.0.0.1:8000/resume/upload-resumes/",
+        "http://127.0.0.1:8010/resume/upload-resumes/",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );

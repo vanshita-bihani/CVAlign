@@ -1,3 +1,5 @@
+# backend/resume/routes.py
+
 from fastapi import APIRouter, UploadFile, File, Form, BackgroundTasks, status
 from fastapi.responses import JSONResponse
 from typing import List
@@ -23,24 +25,27 @@ router = APIRouter()
 
 @router.post("/upload-resumes/")
 async def upload_resumes(files: List[UploadFile] = File(...)):
+    print("DEBUG: /resume/upload-resumes called with files:", [file.filename for file in files])
     saved_files = []
     for file in files:
         file_path = UPLOAD_DIR / file.filename
-        with open(file_path, "wb") as buffer:
-            shutil.copyfileobj(file.file, buffer)
+        with open(file_path, "wb") as buffer_file:
+            shutil.copyfileobj(file.file, buffer_file)
         saved_files.append(file.filename)
     RECENT_UPLOADS_FILE.write_text(json.dumps(saved_files, indent=2))
     return {"status": "success", "files_uploaded": saved_files}
 
 def _run_analysis_background(job_id: str, jd_path: str, resume_paths: List[str], weights: dict):
+    print(f"--- [Background Job: {job_id}] Starting analysis. ---")
+    job_file = RESULT_DIR / f"results_{job_id}.json"
     try:
         results = analyze_all_resumes(jd_path, weights, resume_paths)
-        job_file = RESULT_DIR / f"results_{job_id}.json"
         job_file.write_text(json.dumps(results, indent=2, ensure_ascii=False), encoding="utf-8")
+        print(f"--- [Background Job: {job_id}] Analysis complete. Results saved. ---")
     except Exception as e:
         err = {"error": str(e), "trace": traceback.format_exc()}
-        job_file = RESULT_DIR / f"results_{job_id}.json"
         job_file.write_text(json.dumps(err, indent=2, ensure_ascii=False), encoding="utf-8")
+        print(f"--- [Background Job: {job_id}] Analysis FAILED. Error: {e} ---")
 
 @router.post("/analyze/")
 async def analyze_endpoint(
@@ -53,12 +58,14 @@ async def analyze_endpoint(
     jd_path = JD_DIR / jd_file.filename
     with open(jd_path, "wb") as f:
         shutil.copyfileobj(jd_file.file, f)
-
+    print(f"DEBUG: /resume/analyze called. JD file: {jd_file.filename}, weights: ",
+          {"education": education_weight, "experience": experience_weight, "skills": skills_weight})
     if not RECENT_UPLOADS_FILE.exists():
         return JSONResponse(content={"error": "Please upload resumes first."}, status_code=400)
 
     resume_names = json.loads(RECENT_UPLOADS_FILE.read_text())
     resume_paths = [str(UPLOAD_DIR / name) for name in resume_names]
+    print("DEBUG: Resumes to analyze:", resume_paths)
     weights = {"skills": skills_weight, "education": education_weight, "experience": experience_weight}
 
     job_id = uuid4().hex
@@ -66,9 +73,9 @@ async def analyze_endpoint(
     
     return JSONResponse(status_code=status.HTTP_202_ACCEPTED, content={"status": "started", "job_id": job_id})
 
-# REPLACE it with this (change the route decorator):
-@router.get("/results/{job_id}") # <-- CHANGE IS HERE
+@router.get("/results/{job_id}")
 async def get_results(job_id: str):
+    print(f"DEBUG: /resume/results called for job_id: {job_id}")
     p = RESULT_DIR / f"results_{job_id}.json"
     if not p.exists():
         return JSONResponse(content={"status": "pending"}, status_code=status.HTTP_202_ACCEPTED)
