@@ -116,22 +116,29 @@ def analyze_all_resumes(
     weights: Dict[str, float],
     resume_file_paths: Optional[List[str]] = None
 ) -> List[Dict[str, Any]]:
-    
-    # ✅ FIX: OpenAI client is initialized here to reliably find the API key
+
+    # ✅ Initialize OpenAI/OpenRouter client
     client = None
     api_key = os.getenv("OPENROUTER_API_KEY")
     if api_key:
         try:
-            client = OpenAI(api_key=api_key, base_url="https://openrouter.ai/api/v1")
+            client = OpenAI(api_key=os.getenv("OPENROUTER_API_KEY"), base_url="https://openrouter.ai/api/v1")
         except Exception as e:
             print(f"CRITICAL ERROR: Failed to create OpenAI client. EXCEPTION: {e}")
             client = None
+    print(f"[DEBUG] API key detected? {'YES' if api_key else 'NO'}")
+    print(f"[DEBUG] Client initialized? {'YES' if client else 'NO'}")
 
+    # ✅ Ensure weights is a dict
     if isinstance(weights, str):
-        try: weights = json.loads(weights.replace("'", "\""))
-        except Exception: weights = {}
-    if not isinstance(weights, dict): weights = {}
-    
+        try:
+            weights = json.loads(weights.replace("'", "\""))
+        except Exception:
+            weights = {}
+    if not isinstance(weights, dict):
+        weights = {}
+
+    # ✅ Extract JD text
     try:
         jd_text = extract_text(jd_file_path)
     except Exception as e:
@@ -142,10 +149,11 @@ def analyze_all_resumes(
     jd_skills = extract_skills_from_text(jd_text)
     results: List[Dict[str, Any]] = []
 
+    # ✅ Load resumes if not provided
     if resume_file_paths is None:
         resume_file_paths = _load_recent_uploads()
         resume_file_paths = [str(RESUMES_DIR / p) for p in resume_file_paths]
-        
+
     resume_paths = [Path(p) for p in resume_file_paths if Path(p).is_file()]
 
     if not resume_paths:
@@ -154,36 +162,44 @@ def analyze_all_resumes(
         return []
 
     for resume_path in resume_paths:
+        # ✅ Extract resume text
         try:
             resume_text = extract_text(str(resume_path))
         except Exception as e:
-            results.append({"name": resume_path.stem, "original_filename": resume_path.name, "error": f"Could not extract text: {e}"})
+            results.append({
+                "name": resume_path.stem,
+                "original_filename": resume_path.name,
+                "error": f"Could not extract text: {e}"
+            })
             continue
 
-        try: semantic_score = compute_similarity(jd_text or "", resume_text or "") * 100
-        except Exception: semantic_score = 0.0
-        
+        # ✅ Compute semantic similarity
+        try:
+            semantic_score = compute_similarity(jd_text or "", resume_text or "") * 100
+        except Exception:
+            semantic_score = 0.0
+
+        # ✅ Compute scores
         resume_skills = extract_skills_from_text(resume_text)
         skill_score = score_skills(resume_skills, jd_skills)
         resume_edu = extract_education_from_text(resume_text)
         education_score = score_education(resume_edu)
         resume_exp_years = extract_experience_years_from_text(resume_text)
         experience_score = min((resume_exp_years / 10) * 100, 100)
-        # Find this line inside the analyze_all_resumes function:
-        final_score = (weights.get("skills", 50) * skill_score + weights.get("education", 20) * education_score + weights.get("experience", 30) * experience_score) / 100.0
 
-        # REPLACE it with this logic:
+        # ✅ Weighted final score
         w_s = weights.get("skills", 50)
         w_e = weights.get("education", 20)
         w_x = weights.get("experience", 30)
         total_weight = w_s + w_e + w_x
-        if total_weight == 0: # Avoid division by zero
+        if total_weight == 0:  # Avoid division by zero
             final_score = 0.0
         else:
             final_score = (w_s * skill_score + w_e * education_score + w_x * experience_score) / total_weight
 
+        # ✅ LLM feedback
         feedback_data = {"strengths": [], "weaknesses": [], "feedback": ""}
-        if client: # Removed the semantic_score > 20 check for reliability
+        if client:  # Removed semantic_score > 20 check
             try:
                 feedback_prompt = f"""
 You are an HR assistant. A job description is: {jd_text}
@@ -195,24 +211,46 @@ Please provide 3 strengths, 3 weaknesses, and a short feedback paragraph in JSON
                     messages=[{"role": "user", "content": feedback_prompt}],
                     response_format={"type": "json_object"}
                 )
-                content = llm_resp.choices[0].message.content or "{}"
-                feedback_data = json.loads(content)
+                print("[DEBUG] LLM raw response:", llm_resp)
+
+
+                raw_content = llm_resp.choices[0].message.content
+                # Handle JSON response safely
+                if isinstance(raw_content, (dict, list)):
+                    feedback_data = raw_content
+                else:
+                    feedback_data = json.loads(raw_content or "{}")
+
             except Exception as e:
-                feedback_data = {"strengths": [], "weaknesses": [], "feedback": f"Feedback unavailable: {e}"}
+                print(f"[ERROR] LLM feedback generation failed for {resume_path.name}: {e}")
+                feedback_data = {
+                    "strengths": [],
+                    "weaknesses": [],
+                    "feedback": f"Feedback unavailable: {e}"
+                }
         else:
             feedback_data["feedback"] = "LLM feedback not available (no API key)."
-        
+
+        # ✅ Append result
         results.append({
-            "name": resume_path.stem, "original_filename": resume_path.name,
-            "semantic_score": round(float(semantic_score), 2), "skills_matched": list(set(resume_skills) & set(jd_skills)),
-            "skill_score": round(float(skill_score), 2), "education": resume_edu,
-            "education_score": round(float(education_score), 2), "experience": f"{resume_exp_years} years",
-            "experience_score": round(float(experience_score), 2), "score": round(float(final_score), 2),
-            **feedback_data
+            "name": resume_path.stem,
+            "original_filename": resume_path.name,
+            "semantic_score": round(float(semantic_score), 2),
+            "skills_matched": list(set(resume_skills) & set(jd_skills)),
+            "skill_score": round(float(skill_score), 2),
+            "education": resume_edu,
+            "education_score": round(float(education_score), 2),
+            "experience": f"{resume_exp_years} years",
+            "experience_score": round(float(experience_score), 2),
+            "score": round(float(final_score), 2),
+            **feedback_data,
+            "raw_feedback": feedback_data.get("feedback", "")  # for CSV export compatibility
         })
 
+    # ✅ Sort and save results
     results.sort(key=lambda x: x.get("score", 0), reverse=True)
     RESULTS_FILE.parent.mkdir(parents=True, exist_ok=True)
     with open(RESULTS_FILE, "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
+
     return results

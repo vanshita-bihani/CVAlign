@@ -1,3 +1,13 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment
+.env
+venv/
+.venv
+
 # Core Web Framework
 fastapi==0.110.0
 gunicorn==21.2.0
