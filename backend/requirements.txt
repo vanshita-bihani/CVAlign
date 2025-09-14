@@ -1,5 +1,7 @@
-fastapi==0.99.1
+fastapi
 uvicorn[standard]
-requests
-pydantic==1.10.12
-# add other libraries your app needs
+python-multipart
+pdfplumber
+python-docx
+spacy
+openai>=1.0.0
