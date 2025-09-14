@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles  # <-- ADD THIS IMPORT
-from .resume import routes as resume_routes
+from resume import routes as resume_routes
 import os # <-- ADD THIS IMPORT
 from pathlib import Path
 from dotenv import load_dotenv
