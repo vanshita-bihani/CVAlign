@@ -42,12 +42,13 @@ The project is a complete full-stack system:
 
 ---
 
+Markdown
+
 ## 🚀 Getting Started (Run Locally)
 
-1. Clone Repository
-Bash
-
-git clone https://github.com/vanshita-bihani/cvalign.git
+#### 1. Clone Repository
+```bash
+git clone [https://github.com/vanshita-bihani/cvalign.git](https://github.com/vanshita-bihani/cvalign.git)
 cd cvalign
 2. Setup & Run Backend
 Navigate to the backend directory:
@@ -55,7 +56,7 @@ Navigate to the backend directory:
 Bash
 
 cd backend
-Create a .env file and add your API key:
+Create a .env file with your API key:
 
 Bash
 
