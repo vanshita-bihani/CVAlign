@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles  # <-- ADD THIS IMPORT
 from resume import routes as resume_routes
 import os # <-- ADD THIS IMPORT
 from pathlib import Path
@@ -24,6 +23,4 @@ app.add_middleware(
 
 app.include_router(resume_routes.router, prefix="/resume", tags=["resume"])
 
-# ✅ ADD THIS BLOCK AT THE END
-# This serves the built React app from the root URL
-app.mount("/", StaticFiles(directory="frontend/build", html=True), name="static")
+app.include_router(resume_routes.router, prefix="/resume")
