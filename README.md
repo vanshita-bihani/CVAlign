@@ -39,8 +39,6 @@ Recruiter UI Resume Parsing (pdfplumber/docx)
 → Weighted Scoring (Skills/Education/Experience)
 → LLM Feedback (OpenRouter GPT API)
 
-markdown
-Copy code
 
 ---
 
@@ -168,23 +166,23 @@ vanshita-bihani-cvalign/
 │   └── public/
 └── evaluation.ipynb      # Model comparison (spaCy vs Transformers)
 📸 Screenshots
-(Add screenshots here for recruiter dashboard, upload forms, analysis results.)
+<img width="1859" height="876" alt="image" src="https://github.com/user-attachments/assets/94dc45f4-310a-4175-9731-50cad6b54eb8" />
+<img width="996" height="825" alt="image" src="https://github.com/user-attachments/assets/49e2eaa2-0871-4316-ad3d-d71b7aa7b473" />
+
 
 📌 Future Improvements
+Using more complex NLP models for better accuracy & resume rankinh
 Fine-tune embeddings on Resume–JD pairs for higher accuracy
-
 Add support for multi-language resumes
-
 Integrate with ATS systems (e.g., Greenhouse, Lever)
-
 Provide recruiter analytics dashboard
 
 👨‍💻 Author
 Vanshita Bihani – B.Tech Final Year
 
-LinkedIn: 
+LinkedIn: https://www.linkedin.com/in/vanshita-bihani-010a5a246/
 
-GitHub: 
+GitHub: https://github.com/vanshita-bihani
 
 📜 License
 MIT License. Free to use and modify.
