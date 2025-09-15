@@ -79,6 +79,7 @@ Recruiter UI Resume Parsing (pdfplumber/docx)
 ## 🚀 Getting Started (Run Locally)
 
 ### 1️⃣ Clone Repository
+```markdown
 ```bash
 git clone https://github.com/<your-username>/cvalign.git
 cd cvalign
