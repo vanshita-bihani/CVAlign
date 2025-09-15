@@ -136,14 +136,11 @@ def analyze_all_resumes(
         # Mask the key for security in logs
         print(f"[DEBUG] Found API key: sk-...{api_key[-4:]}")
         try:
-            http_client = httpx.Client(
-                proxies=None,
-                timeout=30.0
-            )
+            http_client = httpx.Client(timeout=30.0)  # removed invalid 'proxies' argument
             client = OpenAI(
                 api_key=api_key,
                 base_url="https://openrouter.ai/api/v1",
-                http_client=http_client  # Pass the customized client here
+                http_client=http_client
             )
             print("[DEBUG] OpenAI client initialized successfully.")
         except Exception as e:
