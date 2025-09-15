@@ -1,5 +1,5 @@
-# backend/resume/routes.py
-
+import os
+from pathlib import Path
 from fastapi import APIRouter, UploadFile, File, Form, BackgroundTasks, status
 from fastapi.responses import JSONResponse
 from typing import List
@@ -7,19 +7,16 @@ import json
 import shutil
 import traceback
 from uuid import uuid4
-from pathlib import Path
 from .analysis import analyze_all_resumes
-import os
-from pathlib import Path
+
 # Detect Hugging Face environment
 RUNNING_IN_HF = "SPACE_ID" in os.environ
 
 if RUNNING_IN_HF:
-    BASE_DIR = Path("/tmp")  # use /tmp on Hugging Face
+    BASE_DIR = Path("/tmp")  # Hugging Face can only write to /tmp
 else:
-    BASE_DIR = Path(__file__).resolve().parent.parent 
+    BASE_DIR = Path(__file__).resolve().parent.parent  # Local dev: backend/
 
-BASE_DIR = Path(__file__).resolve().parent.parent
 UPLOAD_DIR = BASE_DIR / "uploaded_cvs"
 JD_DIR = BASE_DIR / "uploaded_jds"
 CACHE_DIR = BASE_DIR / "cache"
@@ -31,6 +28,7 @@ for d in [UPLOAD_DIR, JD_DIR, CACHE_DIR, RESULT_DIR]:
 RECENT_UPLOADS_FILE = CACHE_DIR / "recent_uploads.json"
 
 router = APIRouter()
+
 
 @router.post("/upload-resumes/")
 async def upload_resumes(files: List[UploadFile] = File(...)):
