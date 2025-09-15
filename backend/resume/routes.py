@@ -9,6 +9,15 @@ import traceback
 from uuid import uuid4
 from pathlib import Path
 from .analysis import analyze_all_resumes
+import os
+from pathlib import Path
+# Detect Hugging Face environment
+RUNNING_IN_HF = "SPACE_ID" in os.environ
+
+if RUNNING_IN_HF:
+    BASE_DIR = Path("/tmp")  # use /tmp on Hugging Face
+else:
+    BASE_DIR = Path(__file__).resolve().parent.parent 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 UPLOAD_DIR = BASE_DIR / "uploaded_cvs"
