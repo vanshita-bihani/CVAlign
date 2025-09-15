@@ -14,12 +14,19 @@ from utils.matcher import compute_similarity
 from dotenv import load_dotenv
 load_dotenv()
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+# Detect Hugging Face environment to use the correct writable directory
+RUNNING_IN_HF = "SPACE_ID" in os.environ
+
+if RUNNING_IN_HF:
+    BASE_DIR = Path("/tmp")  # Hugging Face can only write to /tmp
+else:
+    BASE_DIR = Path(__file__).resolve().parent.parent # Local dev: backend/
+
+# Define paths based on the dynamic BASE_DIR
 RESUMES_DIR = BASE_DIR / "uploaded_cvs"
 JDS_DIR = BASE_DIR / "uploaded_jds"
-RESULTS_FILE = BASE_DIR / "results" / "results.json"
+RESULTS_FILE = BASE_DIR / "results" / "results.json" # This will now be /tmp/results/results.json on HF
 RECENT_UPLOADS_FILE = BASE_DIR / "cache" / "recent_uploads.json"
-
 COMMON_SKILLS = {
     "python", "java", "javascript", "typescript", "react", "node", "django", "flask",
     "fastapi", "sql", "postgres", "mongodb", "aws", "azure", "docker", "kubernetes",
@@ -117,7 +124,7 @@ def analyze_all_resumes(
     resume_file_paths: Optional[List[str]] = None
 ) -> List[Dict[str, Any]]:
 
-    # ✅ Initialize OpenAI/OpenRouter client
+    #  Initialize OpenAI/OpenRouter client
     client = None
     api_key = os.getenv("OPENROUTER_API_KEY")
     if api_key:
@@ -129,7 +136,7 @@ def analyze_all_resumes(
     print(f"[DEBUG] API key detected? {'YES' if api_key else 'NO'}")
     print(f"[DEBUG] Client initialized? {'YES' if client else 'NO'}")
 
-    # ✅ Ensure weights is a dict
+    #  Ensure weights is a dict
     if isinstance(weights, str):
         try:
             weights = json.loads(weights.replace("'", "\""))
@@ -138,7 +145,7 @@ def analyze_all_resumes(
     if not isinstance(weights, dict):
         weights = {}
 
-    # ✅ Extract JD text
+    #  Extract JD text
     try:
         jd_text = extract_text(jd_file_path)
     except Exception as e:
@@ -149,7 +156,7 @@ def analyze_all_resumes(
     jd_skills = extract_skills_from_text(jd_text)
     results: List[Dict[str, Any]] = []
 
-    # ✅ Load resumes if not provided
+    #  Load resumes if not provided
     if resume_file_paths is None:
         resume_file_paths = _load_recent_uploads()
         resume_file_paths = [str(RESUMES_DIR / p) for p in resume_file_paths]
@@ -162,7 +169,7 @@ def analyze_all_resumes(
         return []
 
     for resume_path in resume_paths:
-        # ✅ Extract resume text
+        #  Extract resume text
         try:
             resume_text = extract_text(str(resume_path))
         except Exception as e:
@@ -173,13 +180,13 @@ def analyze_all_resumes(
             })
             continue
 
-        # ✅ Compute semantic similarity
+        #  Compute semantic similarity
         try:
             semantic_score = compute_similarity(jd_text or "", resume_text or "") * 100
         except Exception:
             semantic_score = 0.0
 
-        # ✅ Compute scores
+        #  Compute scores
         resume_skills = extract_skills_from_text(resume_text)
         skill_score = score_skills(resume_skills, jd_skills)
         resume_edu = extract_education_from_text(resume_text)
@@ -187,7 +194,7 @@ def analyze_all_resumes(
         resume_exp_years = extract_experience_years_from_text(resume_text)
         experience_score = min((resume_exp_years / 10) * 100, 100)
 
-        # ✅ Weighted final score
+        # Weighted final score
         w_s = weights.get("skills", 50)
         w_e = weights.get("education", 20)
         w_x = weights.get("experience", 30)
@@ -197,7 +204,7 @@ def analyze_all_resumes(
         else:
             final_score = (w_s * skill_score + w_e * education_score + w_x * experience_score) / total_weight
 
-        # ✅ LLM feedback
+        #  LLM feedback
         feedback_data = {"strengths": [], "weaknesses": [], "feedback": ""}
         if client:  # Removed semantic_score > 20 check
             try:
@@ -231,7 +238,7 @@ Please provide 3 strengths, 3 weaknesses, and a short feedback paragraph in JSON
         else:
             feedback_data["feedback"] = "LLM feedback not available (no API key)."
 
-        # ✅ Append result
+        #  Append result
         results.append({
             "name": resume_path.stem,
             "original_filename": resume_path.name,
@@ -247,7 +254,7 @@ Please provide 3 strengths, 3 weaknesses, and a short feedback paragraph in JSON
             "raw_feedback": feedback_data.get("feedback", "")  # for CSV export compatibility
         })
 
-    # ✅ Sort and save results
+    #  Sort and save results
     results.sort(key=lambda x: x.get("score", 0), reverse=True)
     RESULTS_FILE.parent.mkdir(parents=True, exist_ok=True)
     with open(RESULTS_FILE, "w", encoding="utf-8") as f:

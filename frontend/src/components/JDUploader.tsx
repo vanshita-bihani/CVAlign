@@ -20,7 +20,7 @@ const JDUploader: React.FC<Props> = ({ weights, onCandidates }) => {
   const [loading, setLoading] = useState(false);
   const toast = useToast();
 
-  // ✅ Function with improved error handling
+  // Function with improved error handling
   const showUploadError = (title: string, error: any) => {
     let description = "An unknown error occurred.";
     if (error.response) {
@@ -99,6 +99,13 @@ const JDUploader: React.FC<Props> = ({ weights, onCandidates }) => {
         });
 
         const finalResult = await pollResults(jobId);
+
+        // ADD THIS ERROR CHECK
+        if (finalResult && finalResult.error) {
+          // If the backend returned an error object, throw it to the catch block
+          throw new Error(`Backend Error: ${finalResult.error}`);
+        }
+
         onCandidates(finalResult);
         toast.close('polling-toast');
         toast({ title: "Analysis Complete!", status: "success" });
