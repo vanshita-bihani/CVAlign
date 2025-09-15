@@ -82,57 +82,57 @@ Copy code
 
 ### 1️⃣ Clone Repository
 
-git clone https://github.com/<your-username>/cvalign.git
-cd cvalign
+- git clone https://github.com/<your-username>/cvalign.git
+- cd cvalign
 
 ### 2️⃣ Setup Backend (FastAPI)
-cd backend
-python -m venv venv
-source venv/bin/activate   # On Windows: venv\Scripts\activate
-pip install --upgrade pip
-pip install -r requirements.txt
-Ensure you have Python 3.10+ installed.
+- cd backend
+- python -m venv venv
+- source venv/bin/activate   # On Windows: venv\Scripts\activate
+- pip install --upgrade pip
+- pip install -r requirements.txt
+- Ensure you have Python 3.10+ installed.
 
 ### 3️⃣ Configure API Keys
-Create a .env file inside backend/ with:
-env
-OPENROUTER_API_KEY=your_openrouter_api_key_here
+- Create a .env file inside backend/ with:
+- env
+- OPENROUTER_API_KEY=your_openrouter_api_key_here
 
 ### 4️⃣ Run Backend
-uvicorn main:app --reload --port 7860
-Backend runs at: http://127.0.0.1:7860
+- uvicorn main:app --reload --port 7860
+- Backend runs at: http://127.0.0.1:7860
 
 ### 5️⃣ Setup Frontend (React)
-cd ../frontend
-npm install
-Configure API Base URL
-Open src/config.js and update:
-js
-const API_BASE = "http://127.0.0.1:7860"; // Local backend
-export default API_BASE;
+- cd ../frontend
+- npm install
+- Configure API Base URL
+- Open src/config.js and update:
+- js
+- const API_BASE = "http://127.0.0.1:7860"; // Local backend
+- export default API_BASE;
 
 ### 6️⃣ Run Frontend
-npm start
-Frontend runs at: http://localhost:3000
+- npm start
+- Frontend runs at: http://localhost:3000
 
 ### 7️⃣ Usage
-Upload one or more resumes (.pdf / .docx)
-Upload a Job Description (JD)
-Set weights for Skills / Education / Experience
-Click Analyze → Wait for background job to finish
-View candidate scores, strengths/weaknesses, and feedback
-Export results as CSV / PDF
+- Upload one or more resumes (.pdf / .docx)
+- Upload a Job Description (JD)
+- Set weights for Skills / Education / Experience
+- Click Analyze → Wait for background job to finish
+- View candidate scores, strengths/weaknesses, and feedback
+- Export results as CSV / PDF
 
 ## 🐳 Run with Docker (Optional)
-To containerize backend:
-cd backend
-docker build -t cvalign-backend .
-docker run -p 7860:7860 cvalign-backend
+- To containerize backend:
+- cd backend
+- docker build -t cvalign-backend .
+- docker run -p 7860:7860 cvalign-backend
 
 ## 🌍 Deployment
-Backend: Hugging Face Spaces (Docker SDK)
-Frontend: Vercel (React)
-Secrets: OPENROUTER_API_KEY configured in Hugging Face Environment → Settings > Variables & Secrets
+- Backend: Hugging Face Spaces (Docker SDK)
+- Frontend: Vercel (React)
+- Secrets: OPENROUTER_API_KEY configured in Hugging Face Environment → Settings > Variables & Secrets
 
 ## 📂 Project Structure
 
