@@ -3,7 +3,7 @@ import os
 import re
 from pathlib import Path
 from typing import List, Dict, Any, Optional
-
+import httpx
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -136,10 +136,14 @@ def analyze_all_resumes(
         # Mask the key for security in logs
         print(f"[DEBUG] Found API key: sk-...{api_key[-4:]}")
         try:
+            http_client = httpx.Client(
+                proxies=None,
+                timeout=30.0
+            )
             client = OpenAI(
                 api_key=api_key,
                 base_url="https://openrouter.ai/api/v1",
-                timeout=30.0, # Add a timeout to prevent hanging
+                http_client=http_client  # Pass the customized client here
             )
             print("[DEBUG] OpenAI client initialized successfully.")
         except Exception as e:
