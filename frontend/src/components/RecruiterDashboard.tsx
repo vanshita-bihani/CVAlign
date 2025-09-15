@@ -26,27 +26,40 @@ const RecruiterDashboard = () => {
     setWeights(prev => ({ ...prev, [name]: numValue }));
   };
 
-  const handleAnalysisComplete = (candidateData: Candidate[]) => {
-    if (Array.isArray(candidateData)) {
-      setCandidates(candidateData);
-      toast({
-        title: `Analysis complete. Found ${candidateData.length} candidates.`,
-        status: "success",
-        duration: 3000,
-        isClosable: true,
-      });
-    } else {
-      console.error("Received non-array data for candidates:", candidateData);
-      setCandidates([]);
-      toast({
-        title: "An error occurred during analysis.",
-        description: "Received an unexpected data format.",
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-      });
-    }
-  };
+  const handleAnalysisComplete = (candidateData: any) => {
+  let normalized: Candidate[] = [];
+
+  if (Array.isArray(candidateData)) {
+    normalized = candidateData;
+  } else if (candidateData && typeof candidateData === "object") {
+    normalized = Object.entries(candidateData).map(([filename, details]: [string, any]) => ({
+      name: filename,
+      score: details?.score ?? 0, // fallback if score is missing
+      ...details,
+    }));
+  }
+
+  if (normalized.length > 0) {
+    setCandidates(normalized);
+    toast({
+      title: `Analysis complete. Found ${normalized.length} candidates.`,
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
+  } else {
+    console.error("Received unexpected data for candidates:", candidateData);
+    setCandidates([]);
+    toast({
+      title: "An error occurred during analysis.",
+      description: "Received an unexpected data format.",
+      status: "error",
+      duration: 5000,
+      isClosable: true,
+    });
+  }
+};
+
 
   // This function is no longer needed as the JDUploader handles it.
   // We keep it here to show how to apply filters if you re-run analysis locally.

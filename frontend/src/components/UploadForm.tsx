@@ -21,7 +21,8 @@ const UploadForm: React.FC = () => {
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
-      setStatus("✅ Uploaded: " + res.data.files.join(", "));
+      setStatus("✅ Uploaded: " + (res.data.files_uploaded || res.data.files || []).join(", "));
+
     } catch (err: any) {
       setStatus("❌ Upload failed: " + err.message);
     }
