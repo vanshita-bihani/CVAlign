@@ -3,7 +3,9 @@ from .extractor import extract_text
 import os
 
 # set huggingface cache dir to a place you can write
-os.environ["TRANSFORMERS_CACHE"] = "/tmp/transformers_cache"
+os.environ["TRANSFORMERS_CACHE"] = "./hf_cache"
+os.environ["HF_HOME"] = "./hf_cache"
+os.makedirs("./hf_cache", exist_ok=True)
 
 # load the model once at startup (pick one model string only)
 model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
