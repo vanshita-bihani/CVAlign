@@ -2,13 +2,21 @@ from sentence_transformers import SentenceTransformer, util
 from .extractor import extract_text
 import os
 
-# Set cache to a writable directory
+# set huggingface cache dir to a place you can write
 os.environ["TRANSFORMERS_CACHE"] = "/tmp/transformers_cache"
 
-# Load transformer model
+# load the model once at startup (pick one model string only)
 model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
-# Load transformer model once at startup
-model = SentenceTransformer("all-MiniLM-L6-v2")  # lightweight & fast
+
+def compute_similarity(text1, text2):
+    if not text1 or not text2:
+        return 0.0
+    # get embeddings
+    emb1 = model.encode(text1, convert_to_tensor=True)
+    emb2 = model.encode(text2, convert_to_tensor=True)
+    # cosine similarity
+    similarity = util.cos_sim(emb1, emb2).item()
+    return similarity
 
 def compute_similarity(text1, text2):
     if not text1 or not text2:
