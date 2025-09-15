@@ -2,6 +2,11 @@ from sentence_transformers import SentenceTransformer, util
 from .extractor import extract_text
 import os
 
+# Set cache to a writable directory
+os.environ["TRANSFORMERS_CACHE"] = "/tmp/transformers_cache"
+
+# Load transformer model
+model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 # Load transformer model once at startup
 model = SentenceTransformer("all-MiniLM-L6-v2")  # lightweight & fast
 
