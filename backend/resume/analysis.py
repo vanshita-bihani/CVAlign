@@ -118,25 +118,35 @@ def _load_recent_uploads() -> List[str]:
         except Exception: return []
     return []
 
+# In backend/resume/analysis.py
+
 def analyze_all_resumes(
     jd_file_path: str,
     weights: Dict[str, float],
     resume_file_paths: Optional[List[str]] = None
 ) -> List[Dict[str, Any]]:
 
-    #  Initialize OpenAI/OpenRouter client
+    # ✅ --- IMPROVEMENT 1: ENHANCED LOGGING & CLIENT INITIALIZATION ---
     client = None
     api_key = os.getenv("OPENROUTER_API_KEY")
-    if api_key:
-        try:
-            client = OpenAI(api_key=os.getenv("OPENROUTER_API_KEY"), base_url="https://openrouter.ai/api/v1")
-        except Exception as e:
-            print(f"CRITICAL ERROR: Failed to create OpenAI client. EXCEPTION: {e}")
-            client = None
-    print(f"[DEBUG] API key detected? {'YES' if api_key else 'NO'}")
-    print(f"[DEBUG] Client initialized? {'YES' if client else 'NO'}")
 
-    #  Ensure weights is a dict
+    if not api_key:
+        print("[CRITICAL] OPENROUTER_API_KEY not found in environment variables.")
+    else:
+        # Mask the key for security in logs
+        print(f"[DEBUG] Found API key: sk-...{api_key[-4:]}")
+        try:
+            client = OpenAI(
+                api_key=api_key,
+                base_url="https://openrouter.ai/api/v1",
+                timeout=30.0, # Add a timeout to prevent hanging
+            )
+            print("[DEBUG] OpenAI client initialized successfully.")
+        except Exception as e:
+            print(f"[CRITICAL] Failed to create OpenAI client. EXCEPTION: {e}")
+            client = None
+    # --- END IMPROVEMENT 1 ---
+
     if isinstance(weights, str):
         try:
             weights = json.loads(weights.replace("'", "\""))
@@ -145,7 +155,6 @@ def analyze_all_resumes(
     if not isinstance(weights, dict):
         weights = {}
 
-    #  Extract JD text
     try:
         jd_text = extract_text(jd_file_path)
     except Exception as e:
@@ -156,7 +165,6 @@ def analyze_all_resumes(
     jd_skills = extract_skills_from_text(jd_text)
     results: List[Dict[str, Any]] = []
 
-    #  Load resumes if not provided
     if resume_file_paths is None:
         resume_file_paths = _load_recent_uploads()
         resume_file_paths = [str(RESUMES_DIR / p) for p in resume_file_paths]
@@ -169,7 +177,6 @@ def analyze_all_resumes(
         return []
 
     for resume_path in resume_paths:
-        #  Extract resume text
         try:
             resume_text = extract_text(str(resume_path))
         except Exception as e:
@@ -180,13 +187,11 @@ def analyze_all_resumes(
             })
             continue
 
-        #  Compute semantic similarity
         try:
             semantic_score = compute_similarity(jd_text or "", resume_text or "") * 100
         except Exception:
             semantic_score = 0.0
 
-        #  Compute scores
         resume_skills = extract_skills_from_text(resume_text)
         skill_score = score_skills(resume_skills, jd_skills)
         resume_edu = extract_education_from_text(resume_text)
@@ -194,51 +199,65 @@ def analyze_all_resumes(
         resume_exp_years = extract_experience_years_from_text(resume_text)
         experience_score = min((resume_exp_years / 10) * 100, 100)
 
-        # Weighted final score
         w_s = weights.get("skills", 50)
         w_e = weights.get("education", 20)
         w_x = weights.get("experience", 30)
         total_weight = w_s + w_e + w_x
-        if total_weight == 0:  # Avoid division by zero
+        if total_weight == 0:
             final_score = 0.0
         else:
             final_score = (w_s * skill_score + w_e * education_score + w_x * experience_score) / total_weight
 
-        #  LLM feedback
         feedback_data = {"strengths": [], "weaknesses": [], "feedback": ""}
-        if client:  # Removed semantic_score > 20 check
+        if client:
             try:
+                # ✅ --- IMPROVEMENT 2: MORE ROBUST PROMPT ---
                 feedback_prompt = f"""
-You are an HR assistant. A job description is: {jd_text}
-Candidate resume is: {resume_text}
-Please provide 3 strengths, 3 weaknesses, and a short feedback paragraph in JSON format.
+You are an expert HR analyst. Your task is to compare a candidate's resume against a job description.
+Provide your analysis in a structured JSON format.
+
+The job description is:
+---
+{jd_text}
+---
+
+The candidate's resume is:
+---
+{resume_text}
+---
+
+Based on the comparison, please provide 3 strengths and 3 weaknesses. Also, write a brief overall feedback summary.
+ONLY respond with a valid JSON object in the following format, with no other text before or after it:
+{{
+  "strengths": ["Strength 1", "Strength 2", "Strength 3"],
+  "weaknesses": ["Weakness 1", "Weakness 2", "Weakness 3"],
+  "feedback": "A short summary of the candidate's suitability."
+}}
 """
+                # --- END IMPROVEMENT 2 ---
+
+                # ✅ --- IMPROVEMENT 3: MORE RESILIENT API CALL & PARSING ---
                 llm_resp = client.chat.completions.create(
                     model="openai/gpt-4o-mini",
                     messages=[{"role": "user", "content": feedback_prompt}],
-                    response_format={"type": "json_object"}
+                    # REMOVED: response_format={"type": "json_object"}
+                    # This parameter is not universally supported and can cause silent failures.
+                    # It's more reliable to ask for JSON in the prompt and parse it.
                 )
-                print("[DEBUG] LLM raw response:", llm_resp)
-
-
+                
                 raw_content = llm_resp.choices[0].message.content
-                # Handle JSON response safely
-                if isinstance(raw_content, (dict, list)):
-                    feedback_data = raw_content
-                else:
-                    feedback_data = json.loads(raw_content or "{}")
+                print(f"[DEBUG] Raw LLM response for {resume_path.name}: {raw_content}")
+
+                # Safely parse the JSON response from the string
+                feedback_data = json.loads(raw_content or "{}")
 
             except Exception as e:
                 print(f"[ERROR] LLM feedback generation failed for {resume_path.name}: {e}")
-                feedback_data = {
-                    "strengths": [],
-                    "weaknesses": [],
-                    "feedback": f"Feedback unavailable: {e}"
-                }
+                feedback_data["feedback"] = f"Feedback generation failed: {e}"
+            # --- END IMPROVEMENT 3 ---
         else:
-            feedback_data["feedback"] = "LLM feedback not available (no API key)."
+            feedback_data["feedback"] = "Feedback not available (API key missing or client failed to initialize)."
 
-        #  Append result
         results.append({
             "name": resume_path.stem,
             "original_filename": resume_path.name,
@@ -251,10 +270,9 @@ Please provide 3 strengths, 3 weaknesses, and a short feedback paragraph in JSON
             "experience_score": round(float(experience_score), 2),
             "score": round(float(final_score), 2),
             **feedback_data,
-            "raw_feedback": feedback_data.get("feedback", "")  # for CSV export compatibility
+            "raw_feedback": feedback_data.get("feedback", "")
         })
 
-    #  Sort and save results
     results.sort(key=lambda x: x.get("score", 0), reverse=True)
     RESULTS_FILE.parent.mkdir(parents=True, exist_ok=True)
     with open(RESULTS_FILE, "w", encoding="utf-8") as f:
