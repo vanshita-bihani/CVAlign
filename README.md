@@ -157,7 +157,7 @@ vanshita-bihani-cvalign/
 ## 👨‍💻 Author
 Vanshita Bihani – B.Tech Final Year  |  
 LinkedIn: [LinkedIn](https://www.linkedin.com/in/vanshita-bihani-010a5a246/)  |  
-GitHub: [GitHub](https://github.com/vanshita-bihani
+GitHub: [GitHub](https://github.com/vanshita-bihani)
 
 ## 📜 License
 MIT License. Free to use and modify.
