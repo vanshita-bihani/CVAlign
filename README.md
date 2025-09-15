@@ -82,7 +82,8 @@ Recruiter UI Resume Parsing (pdfplumber/docx)
 ```bash
 git clone https://github.com/<your-username>/cvalign.git
 cd cvalign
-2️⃣ Setup Backend (FastAPI)
+
+###2️⃣ Setup Backend (FastAPI)
 bash
 Copy code
 cd backend
@@ -93,19 +94,19 @@ pip install --upgrade pip
 pip install -r requirements.txt
 Ensure you have Python 3.10+ installed.
 
-3️⃣ Configure API Keys
+###3️⃣ Configure API Keys
 Create a .env file inside backend/ with:
 
 env
 Copy code
 OPENROUTER_API_KEY=your_openrouter_api_key_here
-4️⃣ Run Backend
+###4️⃣ Run Backend
 bash
 Copy code
 uvicorn main:app --reload --port 7860
 Backend runs at: http://127.0.0.1:7860
 
-5️⃣ Setup Frontend (React)
+###5️⃣ Setup Frontend (React)
 bash
 Copy code
 cd ../frontend
@@ -117,13 +118,13 @@ js
 Copy code
 const API_BASE = "http://127.0.0.1:7860"; // Local backend
 export default API_BASE;
-6️⃣ Run Frontend
+###6️⃣ Run Frontend
 bash
 Copy code
 npm start
 Frontend runs at: http://localhost:3000
 
-7️⃣ Usage
+###7️⃣ Usage
 Upload one or more resumes (.pdf / .docx)
 
 Upload a Job Description (JD)
@@ -136,7 +137,7 @@ View candidate scores, strengths/weaknesses, and feedback
 
 Export results as CSV / PDF
 
-🐳 Run with Docker (Optional)
+##🐳 Run with Docker (Optional)
 To containerize backend:
 
 bash
@@ -144,14 +145,14 @@ Copy code
 cd backend
 docker build -t cvalign-backend .
 docker run -p 7860:7860 cvalign-backend
-🌍 Deployment
+##🌍 Deployment
 Backend: Hugging Face Spaces (Docker SDK)
 
 Frontend: Vercel (React)
 
 Secrets: OPENROUTER_API_KEY configured in Hugging Face Environment → Settings > Variables & Secrets
 
-📂 Project Structure
+##📂 Project Structure
 csharp
 Copy code
 vanshita-bihani-cvalign/
@@ -165,24 +166,24 @@ vanshita-bihani-cvalign/
 │   ├── src/              # Components & pages
 │   └── public/
 └── evaluation.ipynb      # Model comparison (spaCy vs Transformers)
-📸 Screenshots
+##📸 Screenshots
 <img width="1859" height="876" alt="image" src="https://github.com/user-attachments/assets/94dc45f4-310a-4175-9731-50cad6b54eb8" />
 <img width="996" height="825" alt="image" src="https://github.com/user-attachments/assets/49e2eaa2-0871-4316-ad3d-d71b7aa7b473" />
 
 
-📌 Future Improvements
+##📌 Future Improvements
 Using more complex NLP models for better accuracy & resume rankinh
 Fine-tune embeddings on Resume–JD pairs for higher accuracy
 Add support for multi-language resumes
 Integrate with ATS systems (e.g., Greenhouse, Lever)
 Provide recruiter analytics dashboard
 
-👨‍💻 Author
+##👨‍💻 Author
 Vanshita Bihani – B.Tech Final Year
 
 LinkedIn: https://www.linkedin.com/in/vanshita-bihani-010a5a246/
 
 GitHub: https://github.com/vanshita-bihani
 
-📜 License
+##📜 License
 MIT License. Free to use and modify.
