@@ -159,5 +159,8 @@ Vanshita Bihani – B.Tech Final Year  |
 LinkedIn: [LinkedIn](https://www.linkedin.com/in/vanshita-bihani-010a5a246/)  |  
 GitHub: [GitHub](https://github.com/vanshita-bihani)
 
+## Vercel 
+https://cv-align-beige.vercel.app/
+
 ## 📜 License
 MIT License. Free to use and modify.
