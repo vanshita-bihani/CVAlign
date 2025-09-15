@@ -137,16 +137,8 @@ Copy code
 ## 📂 Project Structure
 
 vanshita-bihani-cvalign/
-├── backend/              # FastAPI + AI logic
-│   ├── resume/           # Resume parsing & analysis
-│   ├── utils/            # Extractor & matcher
-│   ├── main.py           # FastAPI entry point
-│   ├── Dockerfile
-│   └── requirements.txt
-├── frontend/             # React + Chakra UI
-│   ├── src/              # Components & pages
-│   └── public/
-└── evaluation.ipynb      # Model comparison (spaCy vs Transformers)
+<img width="722" height="342" alt="image" src="https://github.com/user-attachments/assets/2ba4bae8-4a38-443f-9f27-db82fde8da6c" />
+
 
 ## 📸 Screenshots
 <img width="1855" height="882" alt="image" src="https://github.com/user-attachments/assets/b6f6a1f4-a9b5-47a1-a045-0d5b0be7df6d" />
@@ -163,8 +155,8 @@ vanshita-bihani-cvalign/
 - Provide recruiter analytics dashboard
 
 ## 👨‍💻 Author
-Vanshita Bihani – B.Tech Final Year
-LinkedIn: [Your Profile]
+Vanshita Bihani – B.Tech Final Year  |  
+LinkedIn: [Your Profile]  |  
 GitHub: [Your Profile]
 
 ## 📜 License
