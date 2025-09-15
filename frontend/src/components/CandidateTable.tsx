@@ -1,7 +1,8 @@
-// src/components/CandidateTable.tsx
-import { 
-  Table, Thead, Tbody, Tr, Th, Td, 
-  Box, Text, Badge, Collapse, Button, Flex 
+// frontend/src/components/CandidateTable.tsx
+
+import {
+  Table, Thead, Tbody, Tr, Th, Td,
+  Box, Text, Badge, Collapse, Button, Flex
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 
@@ -22,7 +23,6 @@ const CandidateTable = ({ candidates }: { candidates: Candidate[] }) => {
 
   return (
     <Flex mt={8} align="flex-start" gap={8}>
-      {/* Candidate Table */}
       <Box flex="2" p={4} bg="rgba(10, 25, 47, 0.95)" borderRadius="md" boxShadow="md">
         <Text fontSize="xl" fontWeight="bold" color="white" mb={4}>
           Analyzed Candidates
@@ -39,7 +39,7 @@ const CandidateTable = ({ candidates }: { candidates: Candidate[] }) => {
             </Tr>
           </Thead>
           <Tbody>
-            {candidates.map((c, i) => (
+            {Array.isArray(candidates) && candidates.map((c, i) => (
               <React.Fragment key={i}>
                 <Tr>
                   <Td color="white">{c.name || c.original_filename || 'Unknown'}</Td>

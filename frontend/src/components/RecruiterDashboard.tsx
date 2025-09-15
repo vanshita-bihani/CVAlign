@@ -34,13 +34,14 @@ const RecruiterDashboard = () => {
   } else if (candidateData && typeof candidateData === "object") {
     normalized = Object.entries(candidateData).map(([filename, details]: [string, any]) => ({
       name: filename,
-      score: details?.score ?? 0, // fallback if score is missing
+      score: details?.score ?? 0,
       ...details,
     }));
   }
 
+  setCandidates(normalized);
+
   if (normalized.length > 0) {
-    setCandidates(normalized);
     toast({
       title: `Analysis complete. Found ${normalized.length} candidates.`,
       status: "success",
@@ -48,17 +49,17 @@ const RecruiterDashboard = () => {
       isClosable: true,
     });
   } else {
-    console.error("Received unexpected data for candidates:", candidateData);
-    setCandidates([]);
+    console.error("Unexpected data:", candidateData);
     toast({
-      title: "An error occurred during analysis.",
-      description: "Received an unexpected data format.",
+      title: "Analysis failed.",
+      description: "Unexpected data format from backend.",
       status: "error",
       duration: 5000,
       isClosable: true,
     });
   }
 };
+
 
 
   // This function is no longer needed as the JDUploader handles it.
