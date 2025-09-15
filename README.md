@@ -44,34 +44,45 @@ The project is a complete full-stack system:
 
 ## 🚀 Getting Started (Run Locally)
 
-#### 1. Clone Repository
-```bash
-git clone [https://github.com/vanshita-bihani/cvalign.git](https://github.com/vanshita-bihani/cvalign.git)
-cd cvalign
-2. Setup & Run Backend
+1. Clone Repository
 Bash
 
-# Navigate to backend directory
+git clone https://github.com/vanshita-bihani/cvalign.git
+cd cvalign
+2. Setup & Run Backend
+Navigate to the backend directory:
+
+Bash
+
 cd backend
+Create a .env file and add your API key:
 
-# Create a .env file and add your API key
+Bash
+
 echo "OPENROUTER_API_KEY=your_key_here" > .env
+Build and run the Docker container (Recommended):
 
-# Run with Docker (Recommended)
+Bash
+
 docker build -t cvalign-backend .
 docker run -p 7860:7860 --env-file .env cvalign-backend
 The backend will be running at http://127.0.0.1:7860
 
 3. Setup & Run Frontend
+Navigate to the frontend directory from the project's root folder:
+
 Bash
 
-# Navigate to frontend directory from the root
 cd frontend
+Install dependencies:
 
-# Install dependencies
+Bash
+
 npm install
+Start the development server:
 
-# Start the development server
+Bash
+
 npm start
 The frontend will open at http://localhost:3000
 
