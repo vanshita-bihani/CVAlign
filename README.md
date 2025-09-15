@@ -150,16 +150,17 @@ vanshita-bihani-cvalign/
 
 ## 📸 Screenshots
 <img width="1855" height="882" alt="image" src="https://github.com/user-attachments/assets/b6f6a1f4-a9b5-47a1-a045-0d5b0be7df6d" />
+
 <img width="1772" height="870" alt="image" src="https://github.com/user-attachments/assets/a1fa7819-c95d-409e-8a31-c228a470964f" />
 
 
 
 ## 📌 Future Improvements
-Use core NLP models for better resume ranking and scoring
-Fine-tune embeddings on Resume–JD pairs for higher accuracy
-Add support for multi-language resumes
-Integrate with ATS systems (e.g., Greenhouse, Lever)
-Provide recruiter analytics dashboard
+- Use core NLP models for better resume ranking and scoring
+- Fine-tune embeddings on Resume–JD pairs for higher accuracy
+- Add support for multi-language resumes
+- Integrate with ATS systems (e.g., Greenhouse, Lever)
+- Provide recruiter analytics dashboard
 
 ## 👨‍💻 Author
 Vanshita Bihani – B.Tech Final Year
