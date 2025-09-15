@@ -8,8 +8,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from openai import OpenAI
-from ..utils.extractor import extract_text
-from ..utils.matcher import compute_similarity
+from utils.extractor import extract_text
+from utils.matcher import compute_similarity
 
 from dotenv import load_dotenv
 load_dotenv()

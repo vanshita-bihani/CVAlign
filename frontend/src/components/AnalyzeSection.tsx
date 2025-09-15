@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import API_BASE from "../config";
 
-// ✅ 1. Use the correct, live backend URL
-const API_BASE = "http://127.0.0.1:8010";
 
 const AnalyzeSection: React.FC = () => {
   const [jdFile, setJdFile] = useState<File | null>(null);

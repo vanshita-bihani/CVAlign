@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Text, Input, Button, VStack, HStack, useToast } from "@chakra-ui/react";
 import axios from "axios";
+import API_BASE from "../config";
 
 type Weights = { education: number; experience: number; skills: number };
 
@@ -11,8 +12,7 @@ interface Props {
   onCandidates: (rows: any[]) => void;
 }
 
-// Ensure this URL is correct and your backend is running on this port
-const API_BASE = "http://127.0.0.1:8010";
+
 
 const JDUploader: React.FC<Props> = ({ weights, onCandidates }) => {
   const [resumeFiles, setResumeFiles] = useState<FileList | null>(null);

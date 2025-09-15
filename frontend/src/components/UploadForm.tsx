@@ -1,6 +1,7 @@
 // src/components/UploadForm.tsx (updated)
 import React, { useState } from "react";
 import axios from "axios";
+import API_BASE from "../config";
 
 const UploadForm: React.FC = () => {
   const [files, setFiles] = useState<FileList | null>(null);
@@ -15,7 +16,8 @@ const UploadForm: React.FC = () => {
 
     try {
       const res = await axios.post(
-        "http://127.0.0.1:8010/resume/upload-resumes/",
+        `${API_BASE}/resume/upload-resumes/`
+,
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
