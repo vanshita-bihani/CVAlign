@@ -1,33 +1,25 @@
-from sentence_transformers import SentenceTransformer, util
+import spacy
+from sklearn.metrics.pairwise import cosine_similarity
 from .extractor import extract_text
 import os
 
-# set huggingface cache dir to a place you can write
-os.environ["TRANSFORMERS_CACHE"] = "./hf_cache"
-os.environ["HF_HOME"] = "./hf_cache"
-os.makedirs("./hf_cache", exist_ok=True)
+# load a spaCy model (use a small English model for speed)
+nlp = spacy.load("en_core_web_md")  # or en_core_web_sm if resources limited
 
-# load the model once at startup (pick one model string only)
-model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
-
-def compute_similarity(text1, text2):
-    if not text1 or not text2:
-        return 0.0
-    # get embeddings
-    emb1 = model.encode(text1, convert_to_tensor=True)
-    emb2 = model.encode(text2, convert_to_tensor=True)
-    # cosine similarity
-    similarity = util.cos_sim(emb1, emb2).item()
-    return similarity
+def get_embedding(text):
+    if not text:
+        return None
+    doc = nlp(text)
+    return doc.vector.reshape(1, -1)
 
 def compute_similarity(text1, text2):
     if not text1 or not text2:
         return 0.0
-    # Get embeddings
-    emb1 = model.encode(text1, convert_to_tensor=True)
-    emb2 = model.encode(text2, convert_to_tensor=True)
-    # Cosine similarity
-    similarity = util.cos_sim(emb1, emb2).item()
+    emb1 = get_embedding(text1)
+    emb2 = get_embedding(text2)
+    if emb1 is None or emb2 is None:
+        return 0.0
+    similarity = cosine_similarity(emb1, emb2).item()
     return similarity
 
 
