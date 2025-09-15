@@ -1,13 +1,20 @@
-import spacy
+from sentence_transformers import SentenceTransformer, util
 from .extractor import extract_text
 import os
 
-nlp = spacy.load("en_core_web_sm")
+# Load transformer model once at startup
+model = SentenceTransformer("all-MiniLM-L6-v2")  # lightweight & fast
 
 def compute_similarity(text1, text2):
-    doc1 = nlp(text1)
-    doc2 = nlp(text2)
-    return doc1.similarity(doc2)
+    if not text1 or not text2:
+        return 0.0
+    # Get embeddings
+    emb1 = model.encode(text1, convert_to_tensor=True)
+    emb2 = model.encode(text2, convert_to_tensor=True)
+    # Cosine similarity
+    similarity = util.cos_sim(emb1, emb2).item()
+    return similarity
+
 
 def match_all_cvs_to_jd(jd_path, cv_folder):
     results = []
