@@ -5,12 +5,9 @@ app_port: 7860
 ---
 
 📄 CVAlign: AI-Powered Resume–JD Alignment Tool
-
-CVAlign is an AI-driven resume screening platform that helps recruiters automatically evaluate resumes against job descriptions (JD).
-It provides scoring, ranking, and recruiter-style feedback using a combination of NLP, semantic similarity models, and LLMs.
+CVAlign is an AI-driven resume screening platform that helps recruiters automatically evaluate resumes against job descriptions (JD). It provides scoring, ranking, and recruiter-style feedback using a combination of NLP, semantic similarity models, and LLMs.
 
 🏗️ Project Overview
-
 The project has been designed as a full-stack system:
 
 🌐 Frontend → React + Chakra UI (deployed on Vercel)
@@ -20,30 +17,42 @@ The project has been designed as a full-stack system:
 🧠 AI/NLP Core → Sentence Transformers (semantic similarity), spaCy (NLP), and GPT-based feedback (OpenRouter API)
 
 ✨ Features
-
 ✅ Upload multiple resumes (PDF/DOCX) and a Job Description
+
 ✅ Extract skills, education, and experience automatically
+
 ✅ Score candidates using a weighted model (Skills / Education / Experience)
+
 ✅ Rank candidates by overall suitability
+
 ✅ Generate structured recruiter feedback (strengths, weaknesses, summary) via GPT
+
 ✅ Export results to CSV / PDF
+
 ✅ End-to-end Dockerized deployment (Hugging Face + Vercel)
 
 🏗️ System Architecture
-Frontend (React + Chakra UI) -----> Backend API (FastAPI on Hugging Face)
-       ↑ ↓
-Recruiter UI
-  Resume Parsing (pdfplumber/docx)
-        |
-   → Feature Extraction (spaCy, regex)
-   → Semantic Similarity (Transformers + Cosine)
-   → Weighted Scoring (Skills/Education/Experience)
-   → LLM Feedback (OpenRouter GPT API)
+Code snippet
 
+graph TD
+    A[Frontend: Recruiter UI on React + Chakra UI] -->|HTTP Requests| B(Backend API: FastAPI on Hugging Face);
+    B --> C{Resume Parsing};
+    C --> D{Feature Extraction};
+    D --> E{Semantic Similarity};
+    E --> F{Weighted Scoring};
+    F --> G{LLM Feedback};
+    G --> B;
+    B -->|JSON Response| A;
+
+    subgraph "Backend Logic"
+        C(pdfplumber/docx)
+        D(spaCy, regex)
+        E(Transformers + Cosine)
+        F(Skills/Education/Experience)
+        G(OpenRouter GPT API)
+    end
 🛠️ Tech Stack
-
 Frontend
-
 React (CRA)
 
 Chakra UI
@@ -53,7 +62,6 @@ Axios
 Vercel deployment
 
 Backend
-
 FastAPI + Uvicorn
 
 Docker (Hugging Face Spaces)
@@ -61,7 +69,6 @@ Docker (Hugging Face Spaces)
 Python 3.10
 
 NLP / AI
-
 sentence-transformers (semantic embeddings)
 
 spaCy (NLP preprocessing)
@@ -71,67 +78,63 @@ pdfplumber + python-docx (resume parsing)
 OpenRouter API (GPT-based recruiter feedback)
 
 📊 Evaluation
-
 Replaced spaCy’s doc.similarity with Sentence Transformer embeddings + cosine similarity, improving alignment accuracy by ~40% in sample benchmarks.
 
 Example:
 
 JD: Data Science Intern
 
-Candidate B (ML/NLP projects) → 0.81
-
 Candidate A (Web dev) → 0.33
+
+Candidate B (ML/NLP projects) → 0.81
 
 📈 Demonstrates clear separation between suitable and unsuitable candidates.
 (See evaluation.ipynb for details.)
 
 🚀 Getting Started (Run Locally)
 1️⃣ Clone Repository
+Bash
+
 git clone https://github.com/<your-username>/cvalign.git
 cd cvalign
-
 2️⃣ Setup Backend (FastAPI)
+Bash
+
 cd backend
 python -m venv venv
-source venv/bin/activate   # On Windows: venv\Scripts\activate
-
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install --upgrade pip
 pip install -r requirements.txt
-
-
-Ensure you have Python 3.10+ installed.
+Note: Ensure you have Python 3.10+ installed.
 
 3️⃣ Configure API Keys
-
 Create a .env file inside backend/ with:
 
 OPENROUTER_API_KEY=your_openrouter_api_key_here
-
 4️⃣ Run Backend
+Bash
+
 uvicorn main:app --reload --port 7860
-
-
 Backend runs at 👉 http://127.0.0.1:7860
 
 5️⃣ Setup Frontend (React)
+Bash
+
 cd ../frontend
 npm install
+Configure API Base URL in src/config.js:
 
-
-Configure API Base URL:
-Open src/config.js and update:
+JavaScript
 
 const API_BASE = "http://127.0.0.1:7860"; // Local backend
 export default API_BASE;
-
 6️⃣ Run Frontend
+Bash
+
 npm start
-
-
 Frontend runs at 👉 http://localhost:3000
 
 7️⃣ Usage
-
 Upload one or more resumes (.pdf / .docx)
 
 Upload a Job Description (JD)
@@ -145,15 +148,14 @@ View candidate scores, strengths/weaknesses, and feedback
 Export results as CSV / PDF
 
 🐳 Run with Docker (Optional)
+To containerize the backend:
 
-To containerize backend:
+Bash
 
 cd backend
 docker build -t cvalign-backend .
 docker run -p 7860:7860 cvalign-backend
-
 🌍 Deployment
-
 Backend → Hugging Face Spaces (Docker SDK)
 
 Frontend → Vercel (React)
@@ -163,33 +165,27 @@ Secrets → OPENROUTER_API_KEY configured in Hugging Face
 
 📂 Project Structure
 vanshita-bihani-cvalign/
-├── backend/              # FastAPI + AI logic
-│   ├── resume/           # Resume parsing & analysis
-│   ├── utils/            # Extractor & matcher
-│   ├── main.py           # FastAPI entry point
+├── backend/            # FastAPI + AI logic
+│   ├── resume/         # Resume parsing & analysis
+│   ├── utils/          # Extractor & matcher
+│   ├── main.py         # FastAPI entry point
 │   ├── Dockerfile
 │   └── requirements.txt
-├── frontend/             # React + Chakra UI
-│   ├── src/              # Components & pages
+├── frontend/           # React + Chakra UI
+│   ├── src/            # Components & pages
 │   └── public/
-└── evaluation.ipynb      # Model comparison (spaCy vs Transformers)
-
+└── evaluation.ipynb    # Model comparison (spaCy vs Transformers)
 📸 Screenshots
-<img width="1859" height="876" alt="image" src="https://github.com/user-attachments/assets/94dc45f4-310a-4175-9731-50cad6b54eb8" /> <img width="996" height="825" alt="image" src="https://github.com/user-attachments/assets/49e2eaa2-0871-4316-ad3d-d71b7aa7b473" />
 📌 Future Improvements
-
-Use more complex NLP models for better accuracy & resume ranking
-
 Fine-tune embeddings on Resume–JD pairs for higher accuracy
 
 Add support for multi-language resumes
 
 Integrate with ATS systems (e.g., Greenhouse, Lever)
 
-Provide recruiter analytics dashboard
+Provide a recruiter analytics dashboard
 
 👨‍💻 Author
-
 Vanshita Bihani – B.Tech Final Year
 
 LinkedIn: linkedin.com/in/vanshita-bihani-010a5a246
@@ -197,12 +193,4 @@ LinkedIn: linkedin.com/in/vanshita-bihani-010a5a246
 GitHub: github.com/vanshita-bihani
 
 📜 License
-
-MIT License. Free to use and modify.
-
-LinkedIn: https://www.linkedin.com/in/vanshita-bihani-010a5a246/
-
-GitHub: https://github.com/vanshita-bihani
-
-##📜 License
 MIT License. Free to use and modify.
